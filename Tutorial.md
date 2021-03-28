@@ -10,8 +10,6 @@
 KVM (para máquina virtual baseada em kernel) se refere a uma tecnologia que comemora 10 anos de projeto, essa solução trás virtualização completa para linux em hardware x86 (Intel VT ou AMD-V).  O KVM é um software de código aberto capaz de virtualizar imagens não modificadas do linux ou windows, essa virtualização possui para cada máquina virtual um hardware virtualizado privado, além de uma placa de rede lógica, disco virtual etc. Para mais informações consulte: KVM.
 Conforme mostrado na figura 1, é demonstrado o ambiente no qual foi realizado os testes, o servidor roda o sistema operacional ubuntu server na versão 20.04, possui um processador AMD, com uma placa de rede onboard, no qual  a rede é o endereço ip do roteador comodato do provedor de serviço de internet, após a instalação das dependências para rodar o kvm, recebe a placa de rede lógica juntamente da sub rede de faixa 192.168.120.0 e a rede responde pelo nome "virbr0".
 Nesse tutorial será demonstrado a instalação do KVM sem cabeça no ubuntu 20.04, nesse ambiente não esta sendo utilizado interface gráfica conforme mostrado na figura , as configurações utilizada nesse servidor, necessitam que o processador tenha suporte a virtualização, para isso execute o comando abaixo.
-
-
                              
 <img src="https://user-images.githubusercontent.com/51387190/112635152-39814880-8e1a-11eb-8628-11386a1b9cd2.png" alt="Terminal Linux" title="Terminal Linux" />
 
@@ -20,10 +18,6 @@ Nesse tutorial será demonstrado a instalação do KVM sem cabeça no ubuntu 20.
 Instalação do KVM e suas respectivas dependências.
 
 O primeiro passo é verificar a quantidade de núcleos que o servido físico possui. Isso é importante, para a criação das máquinas virtuais.
-
-
-
-
 
 ```
 grep -Eoc '(vmx|svm)' /proc/cpuinfo
@@ -84,6 +78,7 @@ sudo apt install qemu-kvm libvirt-daemon-system libvirt-clients virtinst cpu-che
 **Figura 6**
    
 <img src="https://user-images.githubusercontent.com/51387190/112647618-7acc2500-8e27-11eb-9f43-5f6f0d4b584b.png" alt="checando os núcleos" title="checando os núcleos" />
+
 **Figura 7**
 
 Após a instalação ser concluída, verifique se o KVM que utiliza a biblioteca libvirtd para executar o serviço no linux está rodando. Observe na figura 8 que o serviço foi ativado.
@@ -111,8 +106,9 @@ Comando = osinfo-query os
 ```
 
 
-<img src=" https://user-images.githubusercontent.com/51387190/112647793-a2bb8880-8e27-11eb-8aea-75920e6dc331.png" alt="checando os núcleos" title="checando os núcleos" />                                                                                                                   **Figura 10**
+<img src=" https://user-images.githubusercontent.com/51387190/112647793-a2bb8880-8e27-11eb-8aea-75920e6dc331.png" alt="checando os núcleos" title="checando os núcleos" /> 
 
+**Figura 10**
 
 Existem diversas fontes e automatização de scripts de como é criado as imagem para virtualização e gerenciamento, para esse tutorial será utilizado dois modos. O primeiro será manual onde você poderá baixar a ISO para o diretório corrente e executar a instalação, o segundo meio é por meio do "virt-builder" e imagens em nuvem. 
 
@@ -203,8 +199,9 @@ Assim como filtrando os sistemas operacionais "debian" e "ubuntu", conforme vist
 $ sudo virt-builder --list | egrep -i 'debian|ubuntu'
 ```
 
+<img src="https://user-images.githubusercontent.com/51387190/112647975-cda5dc80-8e27-11eb-95a5-f2a677623fa5.png" alt="checando os núcleos" title="checando os núcleos" />
 
-<img src="https://user-images.githubusercontent.com/51387190/112647975-cda5dc80-8e27-11eb-95a5-f2a677623fa5.png" alt="checando os núcleos" title="checando os núcleos" />                                                                                                                      **Figura 18**
+**Figura 18**
 
 Criando as variáveis de ambientes no linux, nessa parte do tutorial foi utilizado o "debian-9", pois o "debian-10" estava dando erro de repositório do próprio "virt-builder". Na figura 19 é possível verificar as variáveis sendo declaradas.
 
@@ -259,9 +256,12 @@ $ sudo virt-builder "${os}" \
 ```
 
 <img src="https://user-images.githubusercontent.com/51387190/112648039-dd252580-8e27-11eb-86b4-8e52943e3dfd.png" alt="checando os núcleos" title="checando os núcleos" />  
-                                                                         **Figura 21**
+       
+**Figura 21**
 
-<img src="https://user-images.githubusercontent.com/51387190/112648064-e1514300-8e27-11eb-8b29-152a536f7edb.png" alt="checando os núcleos" title="checando os núcleos" />                                                                                                                      **Figura 22**
+<img src="https://user-images.githubusercontent.com/51387190/112648064-e1514300-8e27-11eb-8b29-152a536f7edb.png" alt="checando os núcleos" title="checando os núcleos" />  
+
+**Figura 22**
 
 Finalizando a instalação importando a vm recém criada para o KVM, no processo mostrado na figura 23, a imagem é criada e inicializada.
 ```
@@ -274,8 +274,9 @@ sudo virt-install --import --name "${vm}" \
 ```
 
 
-<img src="https://user-images.githubusercontent.com/51387190/112648078-e6ae8d80-8e27-11eb-9a2a-a1380b329c09.png" alt="checando os núcleos" title="checando os núcleos" />                                                                                                                      **Figura 23**
+<img src="https://user-images.githubusercontent.com/51387190/112648078-e6ae8d80-8e27-11eb-9a2a-a1380b329c09.png" alt="checando os núcleos" title="checando os núcleos" />     
 
+**Figura 23**
 
 Verificando a imagem recém criada e se esta rodando com o comando mostrado na figura 24.
 
@@ -283,8 +284,9 @@ Verificando a imagem recém criada e se esta rodando com o comando mostrado na f
 virsh list --all
 ```
 
+<img src="https://user-images.githubusercontent.com/51387190/112648102-ec0bd800-8e27-11eb-9dbe-b2ff51c4247c.png" alt="checando os núcleos" title="checando os núcleos" />          
 
-<img src="https://user-images.githubusercontent.com/51387190/112648102-ec0bd800-8e27-11eb-9dbe-b2ff51c4247c.png" alt="checando os núcleos" title="checando os núcleos" />                                                                                                                      **Figura 24**
+**Figura 24**
 
 Entrando no modo console da "VM" e ativando interface de rede manualmente da vm2 criada, para isso usuário é root e a senha foi gerada aleatoriamente no processo anterior, caso deseje alterar a senha utilize o comando após logado "passwd" e altere a senha de root.
 
@@ -292,8 +294,9 @@ Entrando no modo console da "VM" e ativando interface de rede manualmente da vm2
 virsh console vm2
 ```
 
+<img src="https://user-images.githubusercontent.com/51387190/112648142-f6c66d00-8e27-11eb-9a8a-395ea549f214.png" alt="checando os núcleos" title="checando os núcleos" /> 
 
-<img src="https://user-images.githubusercontent.com/51387190/112648142-f6c66d00-8e27-11eb-9a8a-395ea549f214.png" alt="checando os núcleos" title="checando os núcleos" />                                                                                                                      **Figura 25**
+**Figura 25**
 
 Verificando que a interface de rede existe, mas não está ativa. Conforme a figura 26.
 ```
@@ -301,7 +304,9 @@ ip a
 ```
 
 
-<img src="https://user-images.githubusercontent.com/51387190/112648170-fded7b00-8e27-11eb-96f4-5d82b264617d.png" alt="checando os núcleos" title="checando os núcleos" />                                                                                                                      **Figura 26**
+<img src="https://user-images.githubusercontent.com/51387190/112648170-fded7b00-8e27-11eb-96f4-5d82b264617d.png" alt="checando os núcleos" title="checando os núcleos" />                    
+
+**Figura 26**
 
 Utilize o editor de texto de sua preferencia, para alterar o nome da interface conforme mostrado na figura 27.
 
@@ -335,7 +340,9 @@ Verifique que após reiniciar a interface de rede, a máquina virtual recebeu ip
 
 <img src="https://user-images.githubusercontent.com/51387190/112648276-1eb5d080-8e28-11eb-88e1-5824fa0e69f0.png" alt="checando os núcleos" title="checando os núcleos" />
                                                                                                               
+
 **Figura 31**
+
 
 **Referências:**
 
