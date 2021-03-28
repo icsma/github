@@ -89,4 +89,9 @@ sudo apt install qemu-kvm libvirt-daemon-system libvirt-clients virtinst cpu-che
 Após a instalação ser concluída, verifique se o KVM que utiliza a biblioteca libvirtd para executar o serviço no linux está rodando. Observe na figura 8 que o serviço foi ativado.
 
 ```
-sudo systemctl is-active libvirtd                                                                    
+sudo systemctl is-active libvirtd    
+```
+<img src="https://user-images.githubusercontent.com/51387190/112647659-83bcf680-8e27-11eb-8039-08fd1d6ed210.png" alt="checando os núcleos" title="checando os núcleos" />
+
+**Figura 8**
+
