@@ -56,3 +56,18 @@ kvm-ok
 **Figura 5**
 
 Agora é hora de instalar o KVM e suas respectivas dependências. Vale salientar que a parti desse momento é importante ter privilégios especiais, ou seja utilizar o usuário root para instalação e configuração do ambiente conforme mostrado na figura 6 abaixo. A tabela 1 abaixo representa as dependências e descrição dos pacotes a serem instalados.
+
+Nome do Pacote | Descrição | Instalação
+:---------: | :------: | :-------:
+qemu-kvm | Virtualização completa QEMU em hardware x86 | KVM sem cabeça
+libvirt-daemon-system | Arquivos de configuração do daemon Libvirt | KVM sem cabeça |
+libvirt-clients | Programas para a biblioteca libvirt | KVM sem cabeça
+bridge-utils |Interface lógica para criação da ponte | KVM sem cabeça
+virtinst | Pacote para editar as máquinas virtuais | KVM sem cabeça
+virt-manager | aplicativo de desktop para gerenciamento de máquinas virtuais | KVM sem cabeça
+cpu-checker | ferramentas para ajudar a avaliar certos recursos da CPU (ou BIOS) | KVM sem cabeça
+libguestfs-tools | Sistema de gerenciamento de imagem de disco convidado e ferramentas para imagens em nuvem | KVM sem cabeça
+libosinfo-bin | Ferramentas para consultar o banco de dados osinfo | KVM sem cabeça
+
+**Tabela 1 - Adaptado de  Autor: Vivek Gite.**  
+
