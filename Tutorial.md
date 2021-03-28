@@ -71,3 +71,10 @@ libosinfo-bin | Ferramentas para consultar o banco de dados osinfo | KVM sem cab
 
 **Tabela 1 - Adaptado de  Autor: Vivek Gite.**  
 
+Utilize o comando sudo mesmo se estiver como usuário root, é necessário utilizar os dois comandos conforme mostrado na figura 6 e 7.
+
+```
+sudo apt install qemu-kvm libvirt-daemon-system libvirt-clients bridge-utils virtinst virt-manager
+os
+sudo apt install qemu-kvm libvirt-daemon-system libvirt-clients virtinst cpu-checker libguestfs-tools libosinfo-bin
+```
