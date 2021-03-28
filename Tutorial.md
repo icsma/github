@@ -133,4 +133,232 @@ Obs: Como a "ISO" foi baixado para o diretório /hom/kvmismael, foi necessário 
 <img src="https://user-images.githubusercontent.com/51387190/112647822-ab13c380-8e27-11eb-8ecb-83b3540f576e.png" alt="checando os núcleos" title="checando os núcleos" /> 
 
 **Figura 11**
+Para essa configuração foi utilizado a placa de rede em modo bridge: virbr0 no qual o kvm cria por padrão na instalação, também foi necessário definir o nome da maquina virtual "vm1", assim como o tipo do "SO", para "centos7.0", a quantidade de memória ram "1024" e a quantidade de núcleos da cpu "1". Foi definido também o disco onde montara a "VM"  e o local que se encontra a ISO. Na Figura 12 é possível verificar os paramentos utilizado. E na tabela 2, a descrição de cada parâmetro utilizado.
+```
+virt-install  --network bridge:virbr0 --name vm1 \      
+ --os-variant=centos7.0 --ram=1024 --vcpus=1  \         
+ --disk path=/var/lib/libvirt/images/vm1-os.qcow2,format=qcow2,bus=virtio,size=5 \  
+ --graphics none  --location=/home/kvmismael/osmedia/CentOS-7-x86_64-Minimal-1910-01.iso \
+ --extra-args="console=tty0 console=ttyS0,115200"  --check all=off \
+```
 
+<img src="https://user-images.githubusercontent.com/51387190/112647850-b0710e00-8e27-11eb-8651-aef42f25dca8.png" alt="checando os núcleos" title="checando os núcleos" /> 
+
+**Figura 12**
+                
+OBS: é importante fixar que na criação de uma outra "VM", é necessário trocar o "--name vm1" por outro nome, exemplo "--name vm2", e também alterar o nome onde sera construído o novo disco virtual como por exemplo "/vm1-os.qcw2" para "/vm2-os.qcw2"
+
+Comando | Descrição
+:--------- | :------:
+virt-install  --network bridge:virbr0 --name vm1 \ | Definindo interface lógica e o nome da vm
+ --os-variant=centos7.0 --ram=1024 --vcpus=1  \ | O tipo do sistema operacional utilizado, memória ram e quantidade de nucleo.
+ --disk path=/var/lib/libvirt/images/vm1 os.qcow2,format=qcow2,bus=virtio,size=5 \ | O caminho onde sera criado a vm virtual  
+--graphics none  --location=/home/kvmismael/osmedia/CentOS-7-x86_64-Minimal-1910-01.iso \ | O caminho que se encontra a ISO.
+--extra-args="console=tty0 console=ttyS0,115200"  --check all=off | O console para inicia o processo da instalação
+
+**Tabela 2 - criação própria**
+Na instalação é necessário concluir cada campo de acordo com a figura 13, apenas o campo 3, 9 e 4 ficam como mostrado na figura 14. Os campos mostrado, são para definir senha de usuário root, se o disco definido anteriormente sera utilizado todo, se haverá configurações de rede fixa ou dhcp, a zona ou localização como "TimeZone" etc.  
+
+
+<img src="https://user-images.githubusercontent.com/51387190/112647878-b666ef00-8e27-11eb-854a-5fe50a29811d.png " alt="checando os núcleos" title="checando os núcleos" /> 
+
+**Figura 13**
+
+                                                                       
+<img src="https://user-images.githubusercontent.com/51387190/112647897-bbc43980-8e27-11eb-966f-6270c33b6c77.png" alt="checando os núcleos" title="checando os núcleos" />                                          
+
+**Figura 14**
+
+                                                                           
+Nessa etapa, a configuração foi concluída conforme mostrado  na figura 15, agora ao pressionar a tecla "Enter", a VM recém criada é reiniciada e inicializada conforme visto na figura 16.
+
+
+<img src="https://user-images.githubusercontent.com/51387190/112647921-c088ed80-8e27-11eb-9487-73f418fa86d8.png" alt="checando os núcleos" title="checando os núcleos" />
+
+**Figura 15**  
+                                                                                                                                                  
+
+Ainda na figura 16, observem que o "usuário" digitado deve ser o "root" e a senha definida na instalação da "VM". após se logar, é possível verificar o ip recebido pelo "dhcp" da "KVM default". E o "ping", para testa a comunicação com o "Google".
+
+<img src="https://user-images.githubusercontent.com/51387190/112647942-c54da180-8e27-11eb-8ceb-081ff145e04a.png" alt="checando os núcleos" title="checando os núcleos" />  
+
+**Figura 16**                                                                                
+
+Instalação VM com variáveis e scripts:
+
+
+OBS: Verificando sistemas a serem instalado na nuvem que der a suporte ao virt-builder, conforme a figura 17 no qual exibi a lista de sistemas operacionais que podem ser baixadas e criadas as "VM".
+
+```
+$ sudo virt-builder --list
+```
+
+<img src="https://user-images.githubusercontent.com/51387190/112647955-c979bf00-8e27-11eb-82e1-07dd47420a9b.png" alt="checando os núcleos" title="checando os núcleos" />  
+
+**Figura 17**
+
+Assim como filtrando os sistemas operacionais "debian" e "ubuntu", conforme visto na figura 18 abaixo.
+
+```
+$ sudo virt-builder --list | egrep -i 'debian|ubuntu'
+```
+
+
+<img src="https://user-images.githubusercontent.com/51387190/112647975-cda5dc80-8e27-11eb-95a5-f2a677623fa5.png" alt="checando os núcleos" title="checando os núcleos" />                                                                                                                      **Figura 18**
+
+Criando as variáveis de ambientes no linux, nessa parte do tutorial foi utilizado o "debian-9", pois o "debian-10" estava dando erro de repositório do próprio "virt-builder". Na figura 19 é possível verificar as variáveis sendo declaradas.
+
+```
+export vm="debian-9-vm1"                # Nome da VM
+export os="debian-9"                    # o sistema operacional, tem que ser o nome conforme mostrado la listagem da figura 18.    
+export tz="America/Fortaleza"           # Time zone.
+export ram="1024"                       # Memória ram da VM.
+export disk="10G"                       # O tamnaho do disco a ser utilizado.
+export vcpu="1"                         # Números de núcleos a serem utilizados.
+export key=/root/.ssh/id_rsa.pub        # Chave publica do SSH
+export pwd="Encrypted_PASSWORD_HERE"    # Criptografando a menssagem para criação da senha.
+export bridge="virbr0"                  # nome da interface lógica de rede 'br0' ou 'virbr0'
+export ostype="debian9"                 # o tipo do SO definido.
+```
+
+<img src="https://user-images.githubusercontent.com/51387190/112647995-d26a9080-8e27-11eb-9bae-1c1ac6c18a9a.png" alt="checando os núcleos" title="checando os núcleos" />  
+
+**Figura 19**
+                                                                         
+Se por acaso, a variável declarada teve um erro de digitação, poderá verificar com os comandos abaixo.
+
+```
+kvmismael:~$ env | grep key         #Verificando se a variavel key existe
+kvmismael:~$ unset DUALCASE         #Caso a variável existe e cometeu um erro de sintaxe, apague e recrie com o comando "export".  
+```
+
+gerando o par de chave conforme mostrado na figura 20.
+```
+ssh-keygen
+```
+
+<img src="https://user-images.githubusercontent.com/51387190/112648017-d7c7db00-8e27-11eb-9b2b-f72a73211961.png" alt="checando os núcleos" title="checando os núcleos" />
+
+**Figura 20**  
+                                   
+
+Criando a maquina virtual após declarar a variável de ambiente nos passos anteriores, após utilizar cada parâmetro o ultimo comando conforme pode ser visualizado na figura 21 executa para a criação da imagem. É importante destacar, que após finalizar a pré instalação da VM, a senha criptografada é gerada aleatoriamente conforme mostrado na figura 22.
+```
+$ sudo virt-builder "${os}" \
+--hostname "${vm}" \
+--network \
+--timezone "${tz}" \
+--size=${disk} \
+--format qcow2 -o /var/lib/libvirt/images/${vm}-disk01.qcow2 \
+--update \
+--firstboot-command "dpkg-reconfigure openssh-server" \
+--firstboot-command "useradd -p ${pwd} -s /bin/bash -m -d /root -G sudo root" \
+--edit '/etc/default/grub:s/^GRUB_CMDLINE_LINUX_DEFAULT=.*/GRUB_CMDLINE_LINUX_DEFAULT="console=tty0 console=ttyS0,115200n8"/' \
+--ssh-inject "root:file:${key}" \
+--run-command update-grub
+```
+
+<img src="https://user-images.githubusercontent.com/51387190/112648039-dd252580-8e27-11eb-86b4-8e52943e3dfd.png" alt="checando os núcleos" title="checando os núcleos" />  
+                                                                         **Figura 21**
+
+<img src="https://user-images.githubusercontent.com/51387190/112648064-e1514300-8e27-11eb-8b29-152a536f7edb.png" alt="checando os núcleos" title="checando os núcleos" />                                                                                                                      **Figura 22**
+
+Finalizando a instalação importando a vm recém criada para o KVM, no processo mostrado na figura 23, a imagem é criada e inicializada.
+```
+sudo virt-install --import --name "${vm}" \
+--ram "${ram}" \
+--vcpu "${vcpu}" \
+--disk path=/var/lib/libvirt/images/${vm}-disk01.qcow2,format=qcow2 \
+--os-variant "${ostype}" \
+--network bridge:virbr0 --noautoconsole
+```
+
+
+<img src="https://user-images.githubusercontent.com/51387190/112648078-e6ae8d80-8e27-11eb-9a2a-a1380b329c09.png" alt="checando os núcleos" title="checando os núcleos" />                                                                                                                      **Figura 23**
+
+
+Verificando a imagem recém criada e se esta rodando com o comando mostrado na figura 24.
+
+```
+virsh list --all
+```
+
+
+<img src="https://user-images.githubusercontent.com/51387190/112648102-ec0bd800-8e27-11eb-9dbe-b2ff51c4247c.png" alt="checando os núcleos" title="checando os núcleos" />                                                                                                                      **Figura 24**
+
+Entrando no modo console da "VM" e ativando interface de rede manualmente da vm2 criada, para isso usuário é root e a senha foi gerada aleatoriamente no processo anterior, caso deseje alterar a senha utilize o comando após logado "passwd" e altere a senha de root.
+
+```
+virsh console vm2
+```
+
+
+<img src="https://user-images.githubusercontent.com/51387190/112648142-f6c66d00-8e27-11eb-9a8a-395ea549f214.png" alt="checando os núcleos" title="checando os núcleos" />                                                                                                                      **Figura 25**
+
+Verificando que a interface de rede existe, mas não está ativa. Conforme a figura 26.
+```
+ip a
+```
+
+
+<img src="https://user-images.githubusercontent.com/51387190/112648170-fded7b00-8e27-11eb-96f4-5d82b264617d.png" alt="checando os núcleos" title="checando os núcleos" />                                                                                                                      **Figura 26**
+
+Utilize o editor de texto de sua preferencia, para alterar o nome da interface conforme mostrado na figura 27.
+
+```
+vi /et/network/interfaces
+```
+
+<img src="https://user-images.githubusercontent.com/51387190/112648184-03e35c00-8e28-11eb-9184-b5037101c623.png" alt="checando os núcleos" title="checando os núcleos" />
+
+**Figura 27**                                                                           
+
+Altere o ens2, por enp1s0 de acordo com a figura abaixo 28.
+
+<img src="https://user-images.githubusercontent.com/51387190/112648202-0776e300-8e28-11eb-8e33-c7ebcd44095b.png" alt="checando os núcleos" title="checando os núcleos" />                                                                                                                      
+
+**Figura 28**
+
+Alteração deve ficar de acordo com a interface existente conforme mostrado na figura 29.
+
+<img src="https://user-images.githubusercontent.com/51387190/112648215-0c3b9700-8e28-11eb-98ed-5f079529e0fb.png" alt="checando os núcleos" title="checando os núcleos" />  
+
+**Figura 29**
+
+Restarte o serviço de rede de acordo com a figura 30  e verifique se a rede recebeu "IP" vindo da sub-rede do "KVM", caso contrario reinicie a máquina virtual com o comando "init 6" ou "reboot".
+
+<img src="https://user-images.githubusercontent.com/51387190/112648231-1198e180-8e28-11eb-9b63-8ee713bd1eaf.png" alt="checando os núcleos" title="checando os núcleos" />
+
+**Figura 30**  
+                                                                     
+Verifique que após reiniciar a interface de rede, a máquina virtual recebeu ip 192.168.122.144 e saiu para o servidor do google, conforme pode ser visto na figura 31.
+
+<img src="https://user-images.githubusercontent.com/51387190/112648276-1eb5d080-8e28-11eb-88e1-5824fa0e69f0.png" alt="checando os núcleos" title="checando os núcleos" />
+                                                                                                              
+**Figura 31**
+
+**Referências:**
+
+https://qastack.com.br/programming/6877727/how-do-i-delete-an-exported-environment-variable
+
+https://buildlogs.centos.org/rolling/7/isos/x86_64/
+
+https://help.ubuntu.com/community/KVM/Networking#Bridged_Networking
+
+https://www.youtube.com/watch?v=zcBJRQkK7W4
+
+https://wiki.debian.org/KVM
+
+https://www.server-world.info/en/note?os=Ubuntu_20.04&p=kvm&f=2
+
+https://libvirt.org/downloads.html
+
+https://fabianlee.org/2019/04/01/kvm-creating-a-bridged-network-with-netplan-on-ubuntu-bionic/
+
+https://www.cyberciti.biz/faq/how-to-install-kvm-on-ubuntu-20-04-lts-headless-server/
+
+https://linuxize.com/post/how-to-install-kvm-on-ubuntu-20-04/
+
+https://www.ucartz.com/clients/index.php?rp=/knowledgebase/605/How-to-install-KVM-server-on-Debian-Linux-9-Headless-Server.html
+
+</div>
