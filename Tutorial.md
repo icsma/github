@@ -94,4 +94,43 @@ sudo systemctl is-active libvirtd    
 <img src="https://user-images.githubusercontent.com/51387190/112647659-83bcf680-8e27-11eb-8039-08fd1d6ed210.png" alt="checando os núcleos" title="checando os núcleos" />
 
 **Figura 8**
+Para que possa seja possível o gerenciamento das máquinas virtuais o recomendado é que seja adicionado o seu usuário do linux aos grupos "libvirt" e "kvm", para isso utilize a variável "$USER" de acordo com a figura 9 logo abaixo, assim a variável verificara o usuário no qual esta atualmente conectado. 
+```
+sudo usermod -aG libvirt $USER
+sudo usermod -aG kvm $USER
+```
+
+<img src="https://user-images.githubusercontent.com/51387190/112647678-87e91400-8e27-11eb-875a-ad0dca45b4d6.png" alt="checando os núcleos" title="checando os núcleos" />
+
+**Figura 9**
+
+É importante saber quais sãos os sistemas operacionais que rodam no "KVM", conforme mostrado na figura 10, é possível verificar uma quantidade enorme de sistemas operacionais que são suportados pelo "KVM". O comando para verificar essa lista de SO, está logo abaixo.
+ 
+```
+Comando = osinfo-query os
+```
+
+
+<img src=" https://user-images.githubusercontent.com/51387190/112647793-a2bb8880-8e27-11eb-8aea-75920e6dc331.png" alt="checando os núcleos" title="checando os núcleos" />                                                                                                                   **Figura 10**
+
+
+Existem diversas fontes e automatização de scripts de como é criado as imagem para virtualização e gerenciamento, para esse tutorial será utilizado dois modos. O primeiro será manual onde você poderá baixar a ISO para o diretório corrente e executar a instalação, o segundo meio é por meio do "virt-builder" e imagens em nuvem. 
+
+Instalação VM manual:
+
+Criando as máquinas virtual por meio da ISO, baixando o arquivo bruto para o servidor de acordo com o diretório corrente.
+
+Criando diretório, baixando a ISO e dando permissão. Para criação do diretório, utilize o comando "mkdir", seguido do nome para esse diretório. O comando "wget", fará com quer o mesmo baixe o arquivo onde a "ISO" dessa distribuição linux foi disponibilizada. A permissão utilizada "755", atribui a permissão de leitura, escrita e execução para o dono do arquivo (7), leitura e execução para usuários do mesmo grupo e para os demais usuários. Na figura 11, é possível acompanhar os comandos utilizados.
+```
+MKDIR osmedia
+wget https://buildlogs.centos.org/rolling/7/isos/x86_64/CentOS-7-x86_64-Minimal-1910-01.iso
+mv CentOS-7-x86_64-Minimal-1910-01.iso /home/kvmismael/osmedia
+chmod 755 CentOS-7-x86_64-Minimal-1910-01.iso
+```
+Obs: Como a "ISO" foi baixado para o diretório /hom/kvmismael, foi necessário move para o diretório criado "osmedia".
+                            
+
+<img src="https://user-images.githubusercontent.com/51387190/112647822-ab13c380-8e27-11eb-8ecb-83b3540f576e.png" alt="checando os núcleos" title="checando os núcleos" /> 
+
+**Figura 11**
 
