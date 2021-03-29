@@ -102,7 +102,7 @@ sudo usermod -aG kvm $USER
 
 É importante saber quais são os sistemas operacionais que rodam no "KVM", conforme mostrado na figura 10, é possível verificar uma quantidade enorme de sistemas operacionais que são suportados pelo "KVM". O comando para verificar essa lista de "SO", está logo abaixo.
 
-
+<img src="https://user-images.githubusercontent.com/51387190/112647793-a2bb8880-8e27-11eb-8aea-75920e6dc331.png" alt="checando os núcleos" title="checando os núcleos" />
 
 **Figura 10
 
