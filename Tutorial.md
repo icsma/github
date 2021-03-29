@@ -186,7 +186,7 @@ Na instalação é necessário concluir cada campo de acordo com a figura 13, ap
 
 **Figura 16**                                                                                
 
-**4. Instalação VM com variáveis e scripts:**
+**4. Instalação VM com "virt-builder":**
 
 
 - **OBS: Verificando sistemas a serem instalado na nuvem que der a suporte ao virt-builder, conforme a figura 17 no qual exibi a lista de sistemas operacionais que podem ser baixadas e criadas as "VM".**
@@ -288,44 +288,47 @@ sudo virt-install --import --name "${vm}" \
 
 - Verificando a imagem recém criada e se esta rodando com o comando mostrado na figura 24.
 
-```
-virsh list --all
-```
-
 <img src="https://user-images.githubusercontent.com/51387190/112648102-ec0bd800-8e27-11eb-9dbe-b2ff51c4247c.png" alt="checando os núcleos" title="checando os núcleos" />          
 
 **Figura 24**
 
+```
+virsh list --all
+```
+
 - Entrando no modo console da "VM" e ativando interface de rede manualmente da vm2 criada, para isso usuário é root e a senha foi gerada aleatoriamente no processo anterior, caso deseje alterar a senha utilize o comando após logado "passwd" e altere a senha de root.
 
-```
-virsh console vm2
-```
 
 <img src="https://user-images.githubusercontent.com/51387190/112648142-f6c66d00-8e27-11eb-9a8a-395ea549f214.png" alt="checando os núcleos" title="checando os núcleos" /> 
 
 **Figura 25**
 
-Verificando que a interface de rede existe, mas não está ativa. Conforme a figura 26.
 ```
-ip a
+virsh console vm2
 ```
-
 
 <img src="https://user-images.githubusercontent.com/51387190/112648170-fded7b00-8e27-11eb-96f4-5d82b264617d.png" alt="checando os núcleos" title="checando os núcleos" />                    
 
 **Figura 26**
 
-Utilize o editor de texto de sua preferencia, para alterar o nome da interface conforme mostrado na figura 27.
+
+- Verificando que a interface de rede existe, mas não está ativa. Conforme a figura 26.
+
+```
+ip a
+```
+
+- Utilize o editor de texto de sua preferencia, para alterar o nome da interface conforme mostrado na figura 27.
+
+
+<img src="https://user-images.githubusercontent.com/51387190/112648184-03e35c00-8e28-11eb-9184-b5037101c623.png" alt="checando os núcleos" title="checando os núcleos" />
+
+**Figura 27**     
 
 ```
 vi /et/network/interfaces
 ```
-
-<img src="https://user-images.githubusercontent.com/51387190/112648184-03e35c00-8e28-11eb-9184-b5037101c623.png" alt="checando os núcleos" title="checando os núcleos" />
-
-**Figura 27**                                                                           
-
+                                                                      
 Altere o ens2, por enp1s0 de acordo com a figura abaixo 28.
 
 <img src="https://user-images.githubusercontent.com/51387190/112648202-0776e300-8e28-11eb-8e33-c7ebcd44095b.png" alt="checando os núcleos" title="checando os núcleos" />                                                                                                                      
