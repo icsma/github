@@ -23,7 +23,6 @@ Nesse tutorial será demonstrado a instalação do KVM sem cabeça no ubuntu 20.
 
 **Figura 3**
 
-**-Comando-**
 ```
 grep -Eoc '(vmx|svm)' /proc/cpuinfo
 ```
