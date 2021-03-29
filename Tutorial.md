@@ -36,12 +36,10 @@ grep -Eoc '(vmx|svm)' /proc/cpuinfo
 ```
 sudo apt install cpu-checker
 ```
-
-Após a instalação, utilize o comando a seguir conforme visto na figura 5 "kvm-ok", o comando retornou que  "KVM acceleration can be used" ou seja, a aceleração ou virtualização pode ser usada.
 ```
 kvm-ok
 ```
-                                                                       
+
 
 <img src="https://user-images.githubusercontent.com/51387190/112647555-6be57280-8e27-11eb-91cf-8eee7fe3cf44.png" alt="checando os núcleos" title="checando os núcleos" />
 
