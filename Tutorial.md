@@ -89,14 +89,15 @@ sudo systemctl is-active libvirtd    
 ```
 
 - Para que possa seja possível o gerenciamento das máquinas virtuais o recomendado é que seja adicionado o seu usuário do linux aos grupos "libvirt" e "kvm", para isso utilize a variável "$USER" de acordo com a figura 9 logo abaixo, assim a variável verificara o usuário no qual esta atualmente conectado. 
-```
-sudo usermod -aG libvirt $USER
-sudo usermod -aG kvm $USER
-```
 
 <img src="https://user-images.githubusercontent.com/51387190/112647678-87e91400-8e27-11eb-875a-ad0dca45b4d6.png" alt="checando os núcleos" title="checando os núcleos" />
 
 **Figura 9**
+
+```
+sudo usermod -aG libvirt $USER
+sudo usermod -aG kvm $USER
+```
 
 É importante saber quais sãos os sistemas operacionais que rodam no "KVM", conforme mostrado na figura 10, é possível verificar uma quantidade enorme de sistemas operacionais que são suportados pelo "KVM". O comando para verificar essa lista de SO, está logo abaixo.
  
