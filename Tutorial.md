@@ -60,7 +60,7 @@ libosinfo-bin | Ferramentas para consultar o banco de dados osinfo | KVM sem cab
 
 **Tabela 1 - Adaptado de  Autor: Vivek Gite.**  
 
-Utilize o comando sudo mesmo se estiver como usuário root, é necessário utilizar os dois comandos conforme mostrado na figura 6 e 7.
+- Utilize o comando sudo mesmo se estiver como usuário root, é necessário utilizar os dois comandos conforme mostrado na figura 6 e 7.
 
 <img src="https://user-images.githubusercontent.com/51387190/112647592-756eda80-8e27-11eb-8f3c-a621c0cca13f.png" alt="checando os núcleos" title="checando os núcleos" />
 
@@ -78,15 +78,17 @@ sudo apt install qemu-kvm libvirt-daemon-system libvirt-clients bridge-utils vir
 sudo apt install qemu-kvm libvirt-daemon-system libvirt-clients virtinst cpu-checker libguestfs-tools libosinfo-bin
 ```
 
-Após a instalação ser concluída, verifique se o KVM que utiliza a biblioteca libvirtd para executar o serviço no linux está rodando. Observe na figura 8 que o serviço foi ativado.
+- Após a instalação ser concluída, verifique se o KVM que utiliza a biblioteca libvirtd para executar o serviço no linux está rodando. Observe na figura 8 que o serviço foi ativado.
+
+<img src="https://user-images.githubusercontent.com/51387190/112647659-83bcf680-8e27-11eb-8039-08fd1d6ed210.png" alt="checando os núcleos" title="checando os núcleos" />
+
+**Figura 8**
 
 ```
 sudo systemctl is-active libvirtd    
 ```
-<img src="https://user-images.githubusercontent.com/51387190/112647659-83bcf680-8e27-11eb-8039-08fd1d6ed210.png" alt="checando os núcleos" title="checando os núcleos" />
 
-**Figura 8**
-Para que possa seja possível o gerenciamento das máquinas virtuais o recomendado é que seja adicionado o seu usuário do linux aos grupos "libvirt" e "kvm", para isso utilize a variável "$USER" de acordo com a figura 9 logo abaixo, assim a variável verificara o usuário no qual esta atualmente conectado. 
+- Para que possa seja possível o gerenciamento das máquinas virtuais o recomendado é que seja adicionado o seu usuário do linux aos grupos "libvirt" e "kvm", para isso utilize a variável "$USER" de acordo com a figura 9 logo abaixo, assim a variável verificara o usuário no qual esta atualmente conectado. 
 ```
 sudo usermod -aG libvirt $USER
 sudo usermod -aG kvm $USER
