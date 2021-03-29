@@ -5,7 +5,7 @@
 
 <img src="https://user-images.githubusercontent.com/51387190/112634160-0094a400-8e19-11eb-9ead-7bfe36c89dca.png" alt="topologia" title="Topologia KVM!" />
 
-**Figura 1: Criação própria**
+**Topológia: Criação própria**
 
 - KVM (para máquina virtual baseada em kernel) se refere a uma tecnologia que comemora 10 anos de projeto, essa solução trás virtualização completa para linux em hardware x86 (Intel VT ou AMD-V).  O KVM é um software de código aberto capaz de virtualizar imagens não modificadas do linux ou windows, essa virtualização possui para cada máquina virtual um hardware virtualizado privado, além de uma placa de rede lógica, disco virtual etc. Para mais informações consulte: KVM.
 Conforme mostrado na figura 1, é demonstrado o ambiente no qual foi realizado os testes, o servidor roda o sistema operacional ubuntu server na versão 20.04, possui um processador AMD, com uma placa de rede onboard, no qual  a rede é o endereço ip do roteador comodato do provedor de serviço de internet, após a instalação das dependências para rodar o kvm, recebe a placa de rede lógica juntamente da sub rede de faixa 192.168.120.0 e a rede responde pelo nome "virbr0".
@@ -13,15 +13,11 @@ Nesse tutorial será demonstrado a instalação do KVM sem cabeça no ubuntu 20.
                              
 <img src="https://user-images.githubusercontent.com/51387190/112635152-39814880-8e1a-11eb-8628-11386a1b9cd2.png" alt="Terminal Linux" title="Terminal Linux" />
 
-**Figura 2**
-
 **1. Verificando a compatibilidade do processador com a virtualização**
 
 - Verificando a quantidade de núcleos, conforme mostrado na figura 3.
 
 <img src="https://user-images.githubusercontent.com/51387190/112647492-5a03cf80-8e27-11eb-8656-5ca308440d54.png" alt="checando os núcleos" title="checando os núcleos" />
-
-**Figura 3**
 
 ```
 grep -Eoc '(vmx|svm)' /proc/cpuinfo
@@ -31,14 +27,10 @@ grep -Eoc '(vmx|svm)' /proc/cpuinfo
 
 <img src="https://user-images.githubusercontent.com/51387190/112647523-625c0a80-8e27-11eb-9c4d-f0871078d2f0.png" alt="checando os núcleos" title="checando os núcleos" />
 
-**Figura 4**
-
 ```
 sudo apt install cpu-checker
 ```
 <img src="https://user-images.githubusercontent.com/51387190/112647555-6be57280-8e27-11eb-91cf-8eee7fe3cf44.png" alt="checando os núcleos" title="checando os núcleos" />
-
-**Figura 5**
 
 ```
 kvm-ok
@@ -65,15 +57,11 @@ libosinfo-bin | Ferramentas para consultar o banco de dados osinfo | KVM sem cab
 
 <img src="https://user-images.githubusercontent.com/51387190/112647592-756eda80-8e27-11eb-8f3c-a621c0cca13f.png" alt="checando os núcleos" title="checando os núcleos" />
 
-**Figura 6**
-
 ```
 sudo apt install qemu-kvm libvirt-daemon-system libvirt-clients bridge-utils virtinst virt-manager os
 ```
 
 <img src="https://user-images.githubusercontent.com/51387190/112647618-7acc2500-8e27-11eb-9f43-5f6f0d4b584b.png" alt="checando os núcleos" title="checando os núcleos" />
-
-**Figura 7**
 
 ```
 sudo apt install qemu-kvm libvirt-daemon-system libvirt-clients virtinst cpu-checker libguestfs-tools libosinfo-bin
@@ -83,8 +71,6 @@ sudo apt install qemu-kvm libvirt-daemon-system libvirt-clients virtinst cpu-che
 
 <img src="https://user-images.githubusercontent.com/51387190/112647659-83bcf680-8e27-11eb-8039-08fd1d6ed210.png" alt="checando os núcleos" title="checando os núcleos" />
 
-**Figura 8**
-
 ```
 sudo systemctl is-active libvirtd    
 ```
@@ -92,8 +78,6 @@ sudo systemctl is-active libvirtd    
 - Para que possa seja possível o gerenciamento das máquinas virtuais o recomendado é que seja adicionado o seu usuário do linux aos grupos "libvirt" e "kvm", para isso utilize a variável "$USER" de acordo com a figura 9 logo abaixo, assim a variável verificara o usuário no qual esta atualmente conectado. 
 
 <img src="https://user-images.githubusercontent.com/51387190/112647678-87e91400-8e27-11eb-875a-ad0dca45b4d6.png" alt="checando os núcleos" title="checando os núcleos" />
-
-**Figura 9**
 
 ```
 sudo usermod -aG libvirt $USER
@@ -103,8 +87,6 @@ sudo usermod -aG kvm $USER
 - É importante saber quais são os sistemas operacionais que rodam no "KVM", conforme mostrado na figura 10, é possível verificar uma quantidade enorme de sistemas operacionais que são suportados pelo "KVM". O comando para verificar essa lista de "SO", está logo abaixo.
 
 <img src="https://user-images.githubusercontent.com/51387190/112647793-a2bb8880-8e27-11eb-8aea-75920e6dc331.png" alt="checando os núcleos" title="checando os SO" />
-
-**Figura10**
 
 ```
 Comando = osinfo-query os
@@ -121,8 +103,6 @@ Comando = osinfo-query os
 
 <img src="https://user-images.githubusercontent.com/51387190/112647822-ab13c380-8e27-11eb-8ecb-83b3540f576e.png" alt="checando os núcleos" title="checando os núcleos" /> 
 
-**Figura 11**
-
 ```
 MKDIR osmedia
 wget https://buildlogs.centos.org/rolling/7/isos/x86_64/CentOS-7-x86_64-Minimal-1910-01.iso
@@ -135,8 +115,6 @@ chmod 755 CentOS-7-x86_64-Minimal-1910-01.iso
 - Para essa configuração foi utilizado a placa de rede em modo bridge: virbr0 no qual o kvm cria por padrão na instalação, também foi necessário definir o nome da maquina virtual "vm1", assim como o tipo do "SO", para "centos7.0", a quantidade de memória ram "1024" e a quantidade de núcleos da cpu "1". Foi definido também o disco onde montara a "VM"  e o local que se encontra a ISO. Na Figura 12 é possível verificar os paramentos utilizado. E na tabela 2, a descrição de cada parâmetro utilizado.
 
 <img src="https://user-images.githubusercontent.com/51387190/112647850-b0710e00-8e27-11eb-8651-aef42f25dca8.png" alt="checando os núcleos" title="checando os núcleos" /> 
-
-**Figura 12**
 
 ```
 virt-install  --network bridge:virbr0 --name vm1 \      
@@ -163,28 +141,17 @@ Na instalação é necessário concluir cada campo de acordo com a figura 13, ap
 
 
 <img src="https://user-images.githubusercontent.com/51387190/112647878-b666ef00-8e27-11eb-854a-5fe50a29811d.png " alt="checando os núcleos" title="checando os núcleos" /> 
-
-**Figura 13**
-
                                                                        
 <img src="https://user-images.githubusercontent.com/51387190/112647897-bbc43980-8e27-11eb-966f-6270c33b6c77.png" alt="checando os núcleos" title="checando os núcleos" />                                          
-
-**Figura 14**
-
                                                                            
 - Nessa etapa, a configuração foi concluída conforme mostrado  na figura 15, agora ao pressionar a tecla "Enter", a VM recém criada é reiniciada e inicializada conforme visto na figura 16.
 
 
-<img src="https://user-images.githubusercontent.com/51387190/112647921-c088ed80-8e27-11eb-9487-73f418fa86d8.png" alt="checando os núcleos" title="checando os núcleos" />
-
-**Figura 15**  
-                                                                                                                                                  
+<img src="https://user-images.githubusercontent.com/51387190/112647921-c088ed80-8e27-11eb-9487-73f418fa86d8.png" alt="checando os núcleos" title="checando os núcleos" />                                                                                                                                                 
                                                                                                                                                   
 - Ainda na figura 16, observem que o "usuário" digitado deve ser o "root" e a senha definida na instalação da "VM". após se logar, é possível verificar o ip recebido pelo "dhcp" da "KVM default". E o "ping", para testa a comunicação com o "Google".
 
-<img src="https://user-images.githubusercontent.com/51387190/112647942-c54da180-8e27-11eb-8ceb-081ff145e04a.png" alt="checando os núcleos" title="checando os núcleos" />  
-
-**Figura 16**                                                                                
+<img src="https://user-images.githubusercontent.com/51387190/112647942-c54da180-8e27-11eb-8ceb-081ff145e04a.png" alt="checando os núcleos" title="checando os núcleos" />                                                                                 
 
 **4. Instalação VM com "virt-builder":**
 
@@ -192,8 +159,6 @@ Na instalação é necessário concluir cada campo de acordo com a figura 13, ap
 - **OBS: Verificando sistemas a serem instalado na nuvem que der a suporte ao virt-builder, conforme a figura 17 no qual exibi a lista de sistemas operacionais que podem ser baixadas e criadas as "VM".**
 
 <img src="https://user-images.githubusercontent.com/51387190/112647955-c979bf00-8e27-11eb-82e1-07dd47420a9b.png" alt="checando os núcleos" title="checando os núcleos" />  
-
-**Figura 17**
 
 ```
 $ sudo virt-builder --list
@@ -209,8 +174,6 @@ $ sudo virt-builder --list | egrep -i 'debian|ubuntu'
 - Criando as variáveis de ambientes no linux, nessa parte do tutorial foi utilizado o "debian-9", pois o "debian-10" estava dando erro de repositório do próprio "virt-builder". Na figura 19 é possível verificar as variáveis sendo declaradas.
 
 <img src="https://user-images.githubusercontent.com/51387190/112647995-d26a9080-8e27-11eb-9bae-1c1ac6c18a9a.png" alt="checando os núcleos" title="checando os núcleos" />  
-
-**Figura 19**
 
 ```
 export vm="debian-9-vm1"                # Nome da VM
