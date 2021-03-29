@@ -15,7 +15,7 @@ Nesse tutorial será demonstrado a instalação do KVM sem cabeça no ubuntu 20.
 
 **1. Verificando a compatibilidade do processador com a virtualização**
 
-- Verificando a quantidade de núcleos, conforme mostrado na figura 3.
+- Verificando a quantidade de núcleos.
 
 <img src="https://user-images.githubusercontent.com/51387190/112647492-5a03cf80-8e27-11eb-8656-5ca308440d54.png" alt="checando os núcleos" title="checando os núcleos" />
 
@@ -37,7 +37,8 @@ kvm-ok
 ```
 **2. Instalação do KVM e suas respectivas dependências.**
 
-- Agora é hora de instalar o KVM e suas respectivas dependências. Vale salientar que a parti desse momento é importante ter privilégios especiais, ou seja utilizar o usuário root para instalação e configuração do ambiente conforme mostrado na figura 6 abaixo. A tabela 1 abaixo representa as dependências e descrição dos pacotes a serem instalados.
+- Agora é hora de instalar o KVM e suas respectivas dependências. Vale salientar que a parti desse momento é importante ter privilégios especiais, ou seja utilizar o usuário root para instalação e configuração do ambiente. 
+- A tabela 1 abaixo representa as dependências e descrição dos pacotes a serem instalados.
 
 Nome do Pacote | Descrição | Instalação
 :---------: | :------: | :-------:
@@ -53,7 +54,7 @@ libosinfo-bin | Ferramentas para consultar o banco de dados osinfo | KVM sem cab
 
 **Tabela 1 - Adaptado de  Autor: Vivek Gite.**  
 
-- Utilize o comando sudo mesmo se estiver como usuário root, é necessário utilizar os dois comandos conforme mostrado na figura 6 e 7.
+- Utilize o comando sudo mesmo se estiver como usuário root, é necessário utilizar os dois comandos conforme mostrado abaixo.
 
 <img src="https://user-images.githubusercontent.com/51387190/112647592-756eda80-8e27-11eb-8f3c-a621c0cca13f.png" alt="checando os núcleos" title="checando os núcleos" />
 
@@ -67,7 +68,7 @@ sudo apt install qemu-kvm libvirt-daemon-system libvirt-clients bridge-utils vir
 sudo apt install qemu-kvm libvirt-daemon-system libvirt-clients virtinst cpu-checker libguestfs-tools libosinfo-bin
 ```
 
-- Após a instalação ser concluída, verifique se o KVM que utiliza a biblioteca libvirtd para executar o serviço no linux está rodando. Observe na figura 8 que o serviço foi ativado.
+- Verifique se o KVM que utiliza a biblioteca libvirtd para executar o serviço no linux está rodando. 
 
 <img src="https://user-images.githubusercontent.com/51387190/112647659-83bcf680-8e27-11eb-8039-08fd1d6ed210.png" alt="checando os núcleos" title="checando os núcleos" />
 
@@ -75,7 +76,7 @@ sudo apt install qemu-kvm libvirt-daemon-system libvirt-clients virtinst cpu-che
 sudo systemctl is-active libvirtd    
 ```
 
-- Para que possa seja possível o gerenciamento das máquinas virtuais o recomendado é que seja adicionado o seu usuário do linux aos grupos "libvirt" e "kvm", para isso utilize a variável "$USER" de acordo com a figura 9 logo abaixo, assim a variável verificara o usuário no qual esta atualmente conectado. 
+- Para que possa seja possível o gerenciamento das máquinas virtuais o recomendado é que seja adicionado o seu usuário do linux aos grupos "libvirt" e "kvm", para isso utilize a variável "$USER". 
 
 <img src="https://user-images.githubusercontent.com/51387190/112647678-87e91400-8e27-11eb-875a-ad0dca45b4d6.png" alt="checando os núcleos" title="checando os núcleos" />
 
@@ -84,7 +85,7 @@ sudo usermod -aG libvirt $USER
 sudo usermod -aG kvm $USER
 ```
 
-- É importante saber quais são os sistemas operacionais que rodam no "KVM", conforme mostrado na figura 10, é possível verificar uma quantidade enorme de sistemas operacionais que são suportados pelo "KVM". O comando para verificar essa lista de "SO", está logo abaixo.
+- É importante saber quais são os sistemas operacionais que rodam no "KVM", é possível verificar uma quantidade enorme de sistemas operacionais que são suportados pelo "KVM".
 
 <img src="https://user-images.githubusercontent.com/51387190/112647793-a2bb8880-8e27-11eb-8aea-75920e6dc331.png" alt="checando os núcleos" title="checando os SO" />
 
@@ -94,12 +95,22 @@ Comando = osinfo-query os
 
 **3. Instalação VM manual por meio da ISO:**
 
-- Existem diversas fontes e automatização de scripts de como é criado as imagem para virtualização e gerenciamento, para esse tutorial será utilizado dois modos. O primeiro será manual onde você poderá baixar a ISO para o diretório corrente e executar a instalação, o segundo meio é por meio do "virt-builder" e imagens em nuvem. 
+Comando | Descrição
+:--------- | :------:
+virt-install  --network bridge:virbr0 --name vm1 \ | Definindo interface lógica e o nome da vm
+ --os-variant=centos7.0 --ram=1024 --vcpus=1  \ | O tipo do sistema operacional utilizado, memória ram e quantidade de nucleo.
+ --disk path=/var/lib/libvirt/images/vm1 os.qcow2,format=qcow2,bus=virtio,size=5 \ | O caminho onde sera criado a vm virtual  
+--graphics none  --location=/home/kvmismael/osmedia/CentOS-7-x86_64-Minimal-1910-01.iso \ | O caminho que se encontra a ISO.
+--extra-args="console=tty0 console=ttyS0,115200"  --check all=off | O console para inicia o processo da instalação
 
+**Tabela 2 - criação própria**
+
+- Existem diversas fontes e automatização de scripts de como é criado as imagem para virtualização e gerenciamento, para esse tutorial será utilizado dois modos. O primeiro será manual onde você poderá baixar a ISO para o diretório corrente e executar a instalação, o segundo meio é por meio do "virt-builder" e imagens em nuvem. 
 
 - Criando as máquinas virtual por meio da ISO, baixando o arquivo bruto para o servidor de acordo com o diretório corrente.
 
-- Criando diretório, baixando a ISO e dando permissão. Para criação do diretório, utilize o comando "mkdir", seguido do nome para esse diretório. O comando "wget", fará com quer o mesmo baixe o arquivo onde a "ISO" dessa distribuição linux foi disponibilizada. A permissão utilizada "755", atribui a permissão de leitura, escrita e execução para o dono do arquivo (7), leitura e execução para usuários do mesmo grupo e para os demais usuários. Na figura 11, é possível acompanhar os comandos utilizados.
+- Criando diretório, baixando a ISO e dando permissão. Para criação do diretório, utilize o comando "mkdir", seguido do nome para esse diretório. O comando "wget", fará com quer o mesmo baixe o arquivo onde a "ISO" dessa distribuição linux foi disponibilizada. A permissão utilizada "755", atribui a permissão de leitura, escrita e execução para o dono do arquivo (7), leitura e execução para usuários do mesmo grupo e para os demais usuários. 
+
 
 <img src="https://user-images.githubusercontent.com/51387190/112647822-ab13c380-8e27-11eb-8ecb-83b3540f576e.png" alt="checando os núcleos" title="checando os núcleos" /> 
 
@@ -112,7 +123,8 @@ chmod 755 CentOS-7-x86_64-Minimal-1910-01.iso
 **Obs: Como a "ISO" foi baixado para o diretório /hom/kvmismael, foi necessário move para o diretório criado "osmedia".**
                             
 
-- Para essa configuração foi utilizado a placa de rede em modo bridge: virbr0 no qual o kvm cria por padrão na instalação, também foi necessário definir o nome da maquina virtual "vm1", assim como o tipo do "SO", para "centos7.0", a quantidade de memória ram "1024" e a quantidade de núcleos da cpu "1". Foi definido também o disco onde montara a "VM"  e o local que se encontra a ISO. Na Figura 12 é possível verificar os paramentos utilizado. E na tabela 2, a descrição de cada parâmetro utilizado.
+- Para essa configuração foi utilizado a placa de rede em modo bridge: virbr0 no qual o kvm cria por padrão na instalação, também foi necessário definir o nome da maquina virtual "vm1", assim como o tipo do "SO", para "centos7.0", a quantidade de memória ram "1024" e a quantidade de núcleos da cpu "1". Foi definido também o disco onde montara a "VM"  e o local que se encontra a ISO. 
+
 
 <img src="https://user-images.githubusercontent.com/51387190/112647850-b0710e00-8e27-11eb-8651-aef42f25dca8.png" alt="checando os núcleos" title="checando os núcleos" /> 
 
@@ -126,19 +138,7 @@ virt-install  --network bridge:virbr0 --name vm1 \
                 
 **OBS: é importante fixar que na criação de uma outra "VM", é necessário trocar o "--name vm1" por outro nome, exemplo "--name vm2", e também alterar o nome onde sera construído o novo disco virtual como por exemplo "/vm1-os.qcw2" para "/vm2-os.qcw2"**
 
-Comando | Descrição
-:--------- | :------:
-virt-install  --network bridge:virbr0 --name vm1 \ | Definindo interface lógica e o nome da vm
- --os-variant=centos7.0 --ram=1024 --vcpus=1  \ | O tipo do sistema operacional utilizado, memória ram e quantidade de nucleo.
- --disk path=/var/lib/libvirt/images/vm1 os.qcow2,format=qcow2,bus=virtio,size=5 \ | O caminho onde sera criado a vm virtual  
---graphics none  --location=/home/kvmismael/osmedia/CentOS-7-x86_64-Minimal-1910-01.iso \ | O caminho que se encontra a ISO.
---extra-args="console=tty0 console=ttyS0,115200"  --check all=off | O console para inicia o processo da instalação
-
-**Tabela 2 - criação própria**
-
-
-Na instalação é necessário concluir cada campo de acordo com a figura 13, apenas o campo 3, 9 e 4 ficam como mostrado na figura 14. Os campos mostrado, são para definir senha de usuário root, se o disco definido anteriormente sera utilizado todo, se haverá configurações de rede fixa ou dhcp, a zona ou localização como "TimeZone" etc.  
-
+- Na instalação é necessário concluir cada campo conforme a imagem abaixo, apenas o campo 3, 9 e 4 ficam sem configurações. Os campos mostrado, são para definir senha de usuário root, se o disco definido anteriormente sera utilizado todo, se haverá configurações de rede fixa ou dhcp, a zona ou localização como "TimeZone" etc.  
 
 <img src="https://user-images.githubusercontent.com/51387190/112647878-b666ef00-8e27-11eb-854a-5fe50a29811d.png " alt="checando os núcleos" title="checando os núcleos" /> 
                                                                        
