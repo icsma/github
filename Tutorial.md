@@ -17,16 +17,18 @@ Nesse tutorial será demonstrado a instalação do KVM sem cabeça no ubuntu 20.
 
 **Instalação do KVM e suas respectivas dependências.**
 
-Verificando a quantidade de núcleos.
-
-```
-grep -Eoc '(vmx|svm)' /proc/cpuinfo
-```
-O comando citado trás conforme mostrado na figura 3  os núcleos disponível, nesse caso são 4 núcleos e sera utilizado 3 dos 4 para cada máquina criada conforme visto na seção da topologia.
+- Verificando a quantidade de núcleos.
 
 <img src="https://user-images.githubusercontent.com/51387190/112647492-5a03cf80-8e27-11eb-8656-5ca308440d54.png" alt="checando os núcleos" title="checando os núcleos" />
 
 **Figura 3**
+
+```
+grep -Eoc '(vmx|svm)' /proc/cpuinfo
+```
+
+O comando citado trás conforme mostrado na figura 3.
+
 
 Para verificar se o processador suporta a virtualização que o kvm necessita, é necessario instalar o "cpu-checker" e utilizar o comando "kvm-ok".
 ```
