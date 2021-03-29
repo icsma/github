@@ -350,8 +350,7 @@ Restarte o serviço de rede de acordo com a figura 30  e verifique se a rede re
 ```
 /etc/init.d/networking restart
 ```
-                                                                     
-Verifique que após reiniciar a interface de rede, a máquina virtual recebeu ip 192.168.122.144 e saiu para o servidor do google, conforme pode ser visto na figura 31.
+Conforme mostrado na figura 31, a máquina virtual recebe o ip por meio do DHCP do KVM. 
 
 <img src="https://user-images.githubusercontent.com/51387190/112648276-1eb5d080-8e28-11eb-88e1-5824fa0e69f0.png" alt="checando os núcleos" title="checando os núcleos" />
                                                                                                               
