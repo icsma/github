@@ -329,13 +329,13 @@ ip a
 vi /et/network/interfaces
 ```
                                                                       
-Altere o ens2, por enp1s0 de acordo com a figura abaixo 28.
+- Altere o ens2, por enp1s0 de acordo com a figura abaixo 28.
 
 <img src="https://user-images.githubusercontent.com/51387190/112648202-0776e300-8e28-11eb-8e33-c7ebcd44095b.png" alt="checando os núcleos" title="checando os núcleos" />                                                                                                                      
 
 **Figura 28**
 
-Alteração deve ficar de acordo com a interface existente conforme mostrado na figura 29.
+- Alteração deve ficar de acordo com a interface existente conforme mostrado na figura 29.
 
 <img src="https://user-images.githubusercontent.com/51387190/112648215-0c3b9700-8e28-11eb-98ed-5f079529e0fb.png" alt="checando os núcleos" title="checando os núcleos" />  
 
