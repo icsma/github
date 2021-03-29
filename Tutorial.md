@@ -146,7 +146,7 @@ virt-install  --network bridge:virbr0 --name vm1 \
  --extra-args="console=tty0 console=ttyS0,115200"  --check all=off \
 ```
                 
-OBS: é importante fixar que na criação de uma outra "VM", é necessário trocar o "--name vm1" por outro nome, exemplo "--name vm2", e também alterar o nome onde sera construído o novo disco virtual como por exemplo "/vm1-os.qcw2" para "/vm2-os.qcw2"
+**OBS: é importante fixar que na criação de uma outra "VM", é necessário trocar o "--name vm1" por outro nome, exemplo "--name vm2", e também alterar o nome onde sera construído o novo disco virtual como por exemplo "/vm1-os.qcw2" para "/vm2-os.qcw2"**
 
 Comando | Descrição
 :--------- | :------:
@@ -157,6 +157,8 @@ virt-install  --network bridge:virbr0 --name vm1 \ | Definindo interface lógic
 --extra-args="console=tty0 console=ttyS0,115200"  --check all=off | O console para inicia o processo da instalação
 
 **Tabela 2 - criação própria**
+
+
 Na instalação é necessário concluir cada campo de acordo com a figura 13, apenas o campo 3, 9 e 4 ficam como mostrado na figura 14. Os campos mostrado, são para definir senha de usuário root, se o disco definido anteriormente sera utilizado todo, se haverá configurações de rede fixa ou dhcp, a zona ou localização como "TimeZone" etc.  
 
 
@@ -170,32 +172,32 @@ Na instalação é necessário concluir cada campo de acordo com a figura 13, ap
 **Figura 14**
 
                                                                            
-Nessa etapa, a configuração foi concluída conforme mostrado  na figura 15, agora ao pressionar a tecla "Enter", a VM recém criada é reiniciada e inicializada conforme visto na figura 16.
+- Nessa etapa, a configuração foi concluída conforme mostrado  na figura 15, agora ao pressionar a tecla "Enter", a VM recém criada é reiniciada e inicializada conforme visto na figura 16.
 
 
 <img src="https://user-images.githubusercontent.com/51387190/112647921-c088ed80-8e27-11eb-9487-73f418fa86d8.png" alt="checando os núcleos" title="checando os núcleos" />
 
 **Figura 15**  
                                                                                                                                                   
-
-Ainda na figura 16, observem que o "usuário" digitado deve ser o "root" e a senha definida na instalação da "VM". após se logar, é possível verificar o ip recebido pelo "dhcp" da "KVM default". E o "ping", para testa a comunicação com o "Google".
+                                                                                                                                                  
+- Ainda na figura 16, observem que o "usuário" digitado deve ser o "root" e a senha definida na instalação da "VM". após se logar, é possível verificar o ip recebido pelo "dhcp" da "KVM default". E o "ping", para testa a comunicação com o "Google".
 
 <img src="https://user-images.githubusercontent.com/51387190/112647942-c54da180-8e27-11eb-8ceb-081ff145e04a.png" alt="checando os núcleos" title="checando os núcleos" />  
 
 **Figura 16**                                                                                
 
-Instalação VM com variáveis e scripts:
+- Instalação VM com variáveis e scripts:
 
 
-OBS: Verificando sistemas a serem instalado na nuvem que der a suporte ao virt-builder, conforme a figura 17 no qual exibi a lista de sistemas operacionais que podem ser baixadas e criadas as "VM".
-
-```
-$ sudo virt-builder --list
-```
+**OBS: Verificando sistemas a serem instalado na nuvem que der a suporte ao virt-builder, conforme a figura 17 no qual exibi a lista de sistemas operacionais que podem ser baixadas e criadas as "VM".**
 
 <img src="https://user-images.githubusercontent.com/51387190/112647955-c979bf00-8e27-11eb-82e1-07dd47420a9b.png" alt="checando os núcleos" title="checando os núcleos" />  
 
 **Figura 17**
+
+```
+$ sudo virt-builder --list
+```
 
 Assim como filtrando os sistemas operacionais "debian" e "ubuntu", conforme visto na figura 18 abaixo.
 
@@ -203,9 +205,6 @@ Assim como filtrando os sistemas operacionais "debian" e "ubuntu", conforme vist
 $ sudo virt-builder --list | egrep -i 'debian|ubuntu'
 ```
 
-<img src="https://user-images.githubusercontent.com/51387190/112647975-cda5dc80-8e27-11eb-95a5-f2a677623fa5.png" alt="checando os núcleos" title="checando os núcleos" />
-
-**Figura 18**
 
 Criando as variáveis de ambientes no linux, nessa parte do tutorial foi utilizado o "debian-9", pois o "debian-10" estava dando erro de repositório do próprio "virt-builder". Na figura 19 é possível verificar as variáveis sendo declaradas.
 
