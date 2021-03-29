@@ -15,7 +15,7 @@ Nesse tutorial será demonstrado a instalação do KVM sem cabeça no ubuntu 20.
 
 **Figura 2**
 
-**Instalação do KVM e suas respectivas dependências.**
+**Verificando a compatibilidade do processador com a virtualização**
 
 - Verificando a quantidade de núcleos, conforme mostrado na figura 3.
 
@@ -43,6 +43,7 @@ sudo apt install cpu-checker
 ```
 kvm-ok
 ```
+**Instalação do KVM e suas respectivas dependências.**
 
 - Agora é hora de instalar o KVM e suas respectivas dependências. Vale salientar que a parti desse momento é importante ter privilégios especiais, ou seja utilizar o usuário root para instalação e configuração do ambiente conforme mostrado na figura 6 abaixo. A tabela 1 abaixo representa as dependências e descrição dos pacotes a serem instalados.
 
