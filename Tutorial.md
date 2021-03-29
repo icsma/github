@@ -199,14 +199,18 @@ Na instalação é necessário concluir cada campo de acordo com a figura 13, ap
 $ sudo virt-builder --list
 ```
 
-Assim como filtrando os sistemas operacionais "debian" e "ubuntu", conforme visto na figura 18 abaixo.
+- Assim como filtrando os sistemas operacionais "debian" e "ubuntu", conforme visto na figura 18 abaixo.
 
 ```
 $ sudo virt-builder --list | egrep -i 'debian|ubuntu'
 ```
 
 
-Criando as variáveis de ambientes no linux, nessa parte do tutorial foi utilizado o "debian-9", pois o "debian-10" estava dando erro de repositório do próprio "virt-builder". Na figura 19 é possível verificar as variáveis sendo declaradas.
+- Criando as variáveis de ambientes no linux, nessa parte do tutorial foi utilizado o "debian-9", pois o "debian-10" estava dando erro de repositório do próprio "virt-builder". Na figura 19 é possível verificar as variáveis sendo declaradas.
+
+<img src="https://user-images.githubusercontent.com/51387190/112647995-d26a9080-8e27-11eb-9bae-1c1ac6c18a9a.png" alt="checando os núcleos" title="checando os núcleos" />  
+
+**Figura 19**
 
 ```
 export vm="debian-9-vm1"                # Nome da VM
@@ -220,12 +224,8 @@ export pwd="Encrypted_PASSWORD_HERE"    # Criptografando a menssagem para criaç
 export bridge="virbr0"                  # nome da interface lógica de rede 'br0' ou 'virbr0'
 export ostype="debian9"                 # o tipo do SO definido.
 ```
-
-<img src="https://user-images.githubusercontent.com/51387190/112647995-d26a9080-8e27-11eb-9bae-1c1ac6c18a9a.png" alt="checando os núcleos" title="checando os núcleos" />  
-
-**Figura 19**
                                                                          
-Se por acaso, a variável declarada teve um erro de digitação, poderá verificar com os comandos abaixo.
+- **OBS: Se por acaso, a variável declarada teve um erro de digitação, poderá verificar com os comandos abaixo.**
 
 ```
 kvmismael:~$ env | grep key         #Verificando se a variavel key existe
@@ -233,16 +233,29 @@ kvmismael:~$ unset DUALCASE         #Caso a variável existe e cometeu um erro d
 ```
 
 gerando o par de chave conforme mostrado na figura 20.
-```
-ssh-keygen
-```
+
 
 <img src="https://user-images.githubusercontent.com/51387190/112648017-d7c7db00-8e27-11eb-9b2b-f72a73211961.png" alt="checando os núcleos" title="checando os núcleos" />
 
-**Figura 20**  
-                                   
+**Figura 20** 
 
-Criando a maquina virtual após declarar a variável de ambiente nos passos anteriores, após utilizar cada parâmetro o ultimo comando conforme pode ser visualizado na figura 21 executa para a criação da imagem. É importante destacar, que após finalizar a pré instalação da VM, a senha criptografada é gerada aleatoriamente conforme mostrado na figura 22.
+```
+ssh-keygen
+```
+                                    
+
+- Criando a maquina virtual após declarar a variável de ambiente nos passos anteriores, após utilizar cada parâmetro o ultimo comando conforme pode ser visualizado na figura 21 executa para a criação da imagem. É importante destacar, que após finalizar a pré instalação da VM, a senha criptografada é gerada aleatoriamente conforme mostrado na figura 22.
+
+
+<img src="https://user-images.githubusercontent.com/51387190/112648039-dd252580-8e27-11eb-86b4-8e52943e3dfd.png" alt="checando os núcleos" title="checando os núcleos" />  
+       
+**Figura 21**
+
+
+<img src="https://user-images.githubusercontent.com/51387190/112648064-e1514300-8e27-11eb-8b29-152a536f7edb.png" alt="checando os núcleos" title="checando os núcleos" />  
+
+**Figura 22**
+
 ```
 $ sudo virt-builder "${os}" \
 --hostname "${vm}" \
@@ -258,15 +271,12 @@ $ sudo virt-builder "${os}" \
 --run-command update-grub
 ```
 
-<img src="https://user-images.githubusercontent.com/51387190/112648039-dd252580-8e27-11eb-86b4-8e52943e3dfd.png" alt="checando os núcleos" title="checando os núcleos" />  
-       
-**Figura 21**
+- Finalizando a instalação importando a vm recém criada para o KVM, no processo mostrado na figura 23, a imagem é criada e inicializada.
 
-<img src="https://user-images.githubusercontent.com/51387190/112648064-e1514300-8e27-11eb-8b29-152a536f7edb.png" alt="checando os núcleos" title="checando os núcleos" />  
+<img src="https://user-images.githubusercontent.com/51387190/112648078-e6ae8d80-8e27-11eb-9a2a-a1380b329c09.png" alt="checando os núcleos" title="checando os núcleos" />     
 
-**Figura 22**
+**Figura 23**
 
-Finalizando a instalação importando a vm recém criada para o KVM, no processo mostrado na figura 23, a imagem é criada e inicializada.
 ```
 sudo virt-install --import --name "${vm}" \
 --ram "${ram}" \
@@ -276,12 +286,7 @@ sudo virt-install --import --name "${vm}" \
 --network bridge:virbr0 --noautoconsole
 ```
 
-
-<img src="https://user-images.githubusercontent.com/51387190/112648078-e6ae8d80-8e27-11eb-9a2a-a1380b329c09.png" alt="checando os núcleos" title="checando os núcleos" />     
-
-**Figura 23**
-
-Verificando a imagem recém criada e se esta rodando com o comando mostrado na figura 24.
+- Verificando a imagem recém criada e se esta rodando com o comando mostrado na figura 24.
 
 ```
 virsh list --all
@@ -291,7 +296,7 @@ virsh list --all
 
 **Figura 24**
 
-Entrando no modo console da "VM" e ativando interface de rede manualmente da vm2 criada, para isso usuário é root e a senha foi gerada aleatoriamente no processo anterior, caso deseje alterar a senha utilize o comando após logado "passwd" e altere a senha de root.
+- Entrando no modo console da "VM" e ativando interface de rede manualmente da vm2 criada, para isso usuário é root e a senha foi gerada aleatoriamente no processo anterior, caso deseje alterar a senha utilize o comando após logado "passwd" e altere a senha de root.
 
 ```
 virsh console vm2
