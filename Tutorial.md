@@ -237,24 +237,17 @@ gerando o par de chave conforme mostrado na figura 20.
 
 <img src="https://user-images.githubusercontent.com/51387190/112648017-d7c7db00-8e27-11eb-9b2b-f72a73211961.png" alt="checando os núcleos" title="checando os núcleos" />
 
-**Figura 20** 
-
 ```
 ssh-keygen
 ```
-                                    
+
 
 - Criando a maquina virtual após declarar a variável de ambiente nos passos anteriores, após utilizar cada parâmetro o ultimo comando conforme pode ser visualizado na figura 21 executa para a criação da imagem. É importante destacar, que após finalizar a pré instalação da VM, a senha criptografada é gerada aleatoriamente conforme mostrado na figura 22.
 
 
 <img src="https://user-images.githubusercontent.com/51387190/112648039-dd252580-8e27-11eb-86b4-8e52943e3dfd.png" alt="checando os núcleos" title="checando os núcleos" />  
        
-**Figura 21**
-
-
 <img src="https://user-images.githubusercontent.com/51387190/112648064-e1514300-8e27-11eb-8b29-152a536f7edb.png" alt="checando os núcleos" title="checando os núcleos" />  
-
-**Figura 22**
 
 ```
 $ sudo virt-builder "${os}" \
@@ -275,8 +268,6 @@ $ sudo virt-builder "${os}" \
 
 <img src="https://user-images.githubusercontent.com/51387190/112648078-e6ae8d80-8e27-11eb-9a2a-a1380b329c09.png" alt="checando os núcleos" title="checando os núcleos" />     
 
-**Figura 23**
-
 ```
 sudo virt-install --import --name "${vm}" \
 --ram "${ram}" \
@@ -290,8 +281,6 @@ sudo virt-install --import --name "${vm}" \
 
 <img src="https://user-images.githubusercontent.com/51387190/112648102-ec0bd800-8e27-11eb-9dbe-b2ff51c4247c.png" alt="checando os núcleos" title="checando os núcleos" />          
 
-**Figura 24**
-
 ```
 virsh list --all
 ```
@@ -301,16 +290,11 @@ virsh list --all
 
 <img src="https://user-images.githubusercontent.com/51387190/112648142-f6c66d00-8e27-11eb-9a8a-395ea549f214.png" alt="checando os núcleos" title="checando os núcleos" /> 
 
-**Figura 25**
-
 ```
 virsh console vm2
 ```
 
 <img src="https://user-images.githubusercontent.com/51387190/112648170-fded7b00-8e27-11eb-96f4-5d82b264617d.png" alt="checando os núcleos" title="checando os núcleos" />                    
-
-**Figura 26**
-
 
 - Verificando que a interface de rede existe, mas não está ativa. Conforme a figura 26.
 
@@ -321,9 +305,7 @@ ip a
 - Utilize o editor de texto de sua preferencia, para alterar o nome da interface conforme mostrado na figura 27.
 
 
-<img src="https://user-images.githubusercontent.com/51387190/112648184-03e35c00-8e28-11eb-9184-b5037101c623.png" alt="checando os núcleos" title="checando os núcleos" />
-
-**Figura 27**     
+<img src="https://user-images.githubusercontent.com/51387190/112648184-03e35c00-8e28-11eb-9184-b5037101c623.png" alt="checando os núcleos" title="checando os núcleos" />  
 
 ```
 vi /et/network/interfaces
@@ -333,19 +315,13 @@ vi /et/network/interfaces
 
 <img src="https://user-images.githubusercontent.com/51387190/112648202-0776e300-8e28-11eb-8e33-c7ebcd44095b.png" alt="checando os núcleos" title="checando os núcleos" />                                                                                                                      
 
-**Figura 28**
-
 - Alteração deve ficar de acordo com a interface existente conforme mostrado na figura 29.
 
 <img src="https://user-images.githubusercontent.com/51387190/112648215-0c3b9700-8e28-11eb-98ed-5f079529e0fb.png" alt="checando os núcleos" title="checando os núcleos" />  
 
-**Figura 29**
-
 - Restarte o serviço de rede de acordo com a figura 30  e verifique se a rede recebeu "IP" vindo da sub-rede do "KVM", caso contrario reinicie a máquina virtual com o comando "init 6" ou "reboot".
 
 <img src="https://user-images.githubusercontent.com/51387190/112648231-1198e180-8e28-11eb-9b63-8ee713bd1eaf.png" alt="checando os núcleos" title="checando os núcleos" />
-
-**Figura 30**  
 
 ```
 /etc/init.d/networking restart
@@ -354,8 +330,6 @@ vi /et/network/interfaces
 
 <img src="https://user-images.githubusercontent.com/51387190/112648276-1eb5d080-8e28-11eb-88e1-5824fa0e69f0.png" alt="checando os núcleos" title="checando os núcleos" />
                                                                                                               
-**Figura 31**
-
 **Referências:**
 
 https://qastack.com.br/programming/6877727/how-do-i-delete-an-exported-environment-variable
