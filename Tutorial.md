@@ -186,10 +186,10 @@ Na instalação é necessário concluir cada campo de acordo com a figura 13, ap
 
 **Figura 16**                                                                                
 
-- Instalação VM com variáveis e scripts:
+**4. Instalação VM com variáveis e scripts:**
 
 
-**OBS: Verificando sistemas a serem instalado na nuvem que der a suporte ao virt-builder, conforme a figura 17 no qual exibi a lista de sistemas operacionais que podem ser baixadas e criadas as "VM".**
+- **OBS: Verificando sistemas a serem instalado na nuvem que der a suporte ao virt-builder, conforme a figura 17 no qual exibi a lista de sistemas operacionais que podem ser baixadas e criadas as "VM".**
 
 <img src="https://user-images.githubusercontent.com/51387190/112647955-c979bf00-8e27-11eb-82e1-07dd47420a9b.png" alt="checando os núcleos" title="checando os núcleos" />  
 
