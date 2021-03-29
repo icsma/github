@@ -36,14 +36,13 @@ grep -Eoc '(vmx|svm)' /proc/cpuinfo
 ```
 sudo apt install cpu-checker
 ```
-```
-kvm-ok
-```
-
-
 <img src="https://user-images.githubusercontent.com/51387190/112647555-6be57280-8e27-11eb-91cf-8eee7fe3cf44.png" alt="checando os núcleos" title="checando os núcleos" />
 
 **Figura 5**
+
+```
+kvm-ok
+```
 
 Agora é hora de instalar o KVM e suas respectivas dependências. Vale salientar que a parti desse momento é importante ter privilégios especiais, ou seja utilizar o usuário root para instalação e configuração do ambiente conforme mostrado na figura 6 abaixo. A tabela 1 abaixo representa as dependências e descrição dos pacotes a serem instalados.
 
