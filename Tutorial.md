@@ -62,19 +62,21 @@ libosinfo-bin | Ferramentas para consultar o banco de dados osinfo | KVM sem cab
 
 Utilize o comando sudo mesmo se estiver como usuário root, é necessário utilizar os dois comandos conforme mostrado na figura 6 e 7.
 
-```
-sudo apt install qemu-kvm libvirt-daemon-system libvirt-clients bridge-utils virtinst virt-manager
-os
-sudo apt install qemu-kvm libvirt-daemon-system libvirt-clients virtinst cpu-checker libguestfs-tools libosinfo-bin
-```
-
 <img src="https://user-images.githubusercontent.com/51387190/112647592-756eda80-8e27-11eb-8f3c-a621c0cca13f.png" alt="checando os núcleos" title="checando os núcleos" />
 
 **Figura 6**
-   
+
+```
+sudo apt install qemu-kvm libvirt-daemon-system libvirt-clients bridge-utils virtinst virt-manager os
+```
+
 <img src="https://user-images.githubusercontent.com/51387190/112647618-7acc2500-8e27-11eb-9f43-5f6f0d4b584b.png" alt="checando os núcleos" title="checando os núcleos" />
 
 **Figura 7**
+
+```
+sudo apt install qemu-kvm libvirt-daemon-system libvirt-clients virtinst cpu-checker libguestfs-tools libosinfo-bin
+```
 
 Após a instalação ser concluída, verifique se o KVM que utiliza a biblioteca libvirtd para executar o serviço no linux está rodando. Observe na figura 8 que o serviço foi ativado.
 
