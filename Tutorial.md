@@ -15,9 +15,9 @@ Nesse tutorial será demonstrado a instalação do KVM sem cabeça no ubuntu 20.
 
 **Figura 2**
 
-Instalação do KVM e suas respectivas dependências.
+**Instalação do KVM e suas respectivas dependências.**
 
-O primeiro passo é verificar a quantidade de núcleos que o servido físico possui. Isso é importante, para a criação das máquinas virtuais.
+Verificando a quantidade de núcleos.
 
 ```
 grep -Eoc '(vmx|svm)' /proc/cpuinfo
