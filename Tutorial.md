@@ -95,16 +95,6 @@ Comando = osinfo-query os
 
 **3. Instalação VM manual por meio da ISO:**
 
-Comando | Descrição
-:--------- | :------:
-virt-install  --network bridge:virbr0 --name vm1 \ | Definindo interface lógica e o nome da vm
- --os-variant=centos7.0 --ram=1024 --vcpus=1  \ | O tipo do sistema operacional utilizado, memória ram e quantidade de nucleo.
- --disk path=/var/lib/libvirt/images/vm1 os.qcow2,format=qcow2,bus=virtio,size=5 \ | O caminho onde sera criado a vm virtual  
---graphics none  --location=/home/kvmismael/osmedia/CentOS-7-x86_64-Minimal-1910-01.iso \ | O caminho que se encontra a ISO.
---extra-args="console=tty0 console=ttyS0,115200"  --check all=off | O console para inicia o processo da instalação
-
-**Tabela 2 - criação própria**
-
 - Existem diversas fontes e automatização de scripts de como é criado as imagem para virtualização e gerenciamento, para esse tutorial será utilizado dois modos. O primeiro será manual onde você poderá baixar a ISO para o diretório corrente e executar a instalação, o segundo meio é por meio do "virt-builder" e imagens em nuvem. 
 
 - Criando as máquinas virtual por meio da ISO, baixando o arquivo bruto para o servidor de acordo com o diretório corrente.
@@ -156,6 +146,16 @@ virt-install  --network bridge:virbr0 --name vm1 \
 **4. Instalação VM com "virt-builder":**
 
 
+Comando | Descrição
+:--------- | :------:
+virt-install  --network bridge:virbr0 --name vm1 \ | Definindo interface lógica e o nome da vm
+ --os-variant=centos7.0 --ram=1024 --vcpus=1  \ | O tipo do sistema operacional utilizado, memória ram e quantidade de nucleo.
+ --disk path=/var/lib/libvirt/images/vm1 os.qcow2,format=qcow2,bus=virtio,size=5 \ | O caminho onde sera criado a vm virtual  
+--graphics none  --location=/home/kvmismael/osmedia/CentOS-7-x86_64-Minimal-1910-01.iso \ | O caminho que se encontra a ISO.
+--extra-args="console=tty0 console=ttyS0,115200"  --check all=off | O console para inicia o processo da instalação
+
+**Tabela 2 - criação própria**
+
 - **OBS: Verificando sistemas a serem instalado na nuvem que der a suporte ao virt-builder, conforme a figura 17 no qual exibi a lista de sistemas operacionais que podem ser baixadas e criadas as "VM".**
 
 <img src="https://user-images.githubusercontent.com/51387190/112647955-c979bf00-8e27-11eb-82e1-07dd47420a9b.png" alt="checando os núcleos" title="checando os núcleos" />  
@@ -203,7 +203,6 @@ gerando o par de chave conforme mostrado na figura 20.
 ```
 ssh-keygen
 ```
-
 
 - Criando a maquina virtual após declarar a variável de ambiente nos passos anteriores, após utilizar cada parâmetro o ultimo comando conforme pode ser visualizado na figura 21 executa para a criação da imagem. É importante destacar, que após finalizar a pré instalação da VM, a senha criptografada é gerada aleatoriamente conforme mostrado na figura 22.
 
