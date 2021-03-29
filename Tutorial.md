@@ -102,9 +102,9 @@ sudo usermod -aG kvm $USER
 
 É importante saber quais são os sistemas operacionais que rodam no "KVM", conforme mostrado na figura 10, é possível verificar uma quantidade enorme de sistemas operacionais que são suportados pelo "KVM". O comando para verificar essa lista de "SO", está logo abaixo.
 
-<img src="https://user-images.githubusercontent.com/51387190/112647793-a2bb8880-8e27-11eb-8aea-75920e6dc331.png" alt="checando os núcleos" title="checando os núcleos" />
+<img src="https://user-images.githubusercontent.com/51387190/112647793-a2bb8880-8e27-11eb-8aea-75920e6dc331.png" alt="checando os núcleos" title="checando os SO" />
 
-**Figura 10
+**Figura10**
 
 ```
 Comando = osinfo-query os
@@ -118,18 +118,20 @@ Comando = osinfo-query os
 Criando as máquinas virtual por meio da ISO, baixando o arquivo bruto para o servidor de acordo com o diretório corrente.
 
 Criando diretório, baixando a ISO e dando permissão. Para criação do diretório, utilize o comando "mkdir", seguido do nome para esse diretório. O comando "wget", fará com quer o mesmo baixe o arquivo onde a "ISO" dessa distribuição linux foi disponibilizada. A permissão utilizada "755", atribui a permissão de leitura, escrita e execução para o dono do arquivo (7), leitura e execução para usuários do mesmo grupo e para os demais usuários. Na figura 11, é possível acompanhar os comandos utilizados.
+
+<img src="https://user-images.githubusercontent.com/51387190/112647822-ab13c380-8e27-11eb-8ecb-83b3540f576e.png" alt="checando os núcleos" title="checando os núcleos" /> 
+
+**Figura 11**
+
 ```
 MKDIR osmedia
 wget https://buildlogs.centos.org/rolling/7/isos/x86_64/CentOS-7-x86_64-Minimal-1910-01.iso
 mv CentOS-7-x86_64-Minimal-1910-01.iso /home/kvmismael/osmedia
 chmod 755 CentOS-7-x86_64-Minimal-1910-01.iso
 ```
-Obs: Como a "ISO" foi baixado para o diretório /hom/kvmismael, foi necessário move para o diretório criado "osmedia".
+**Obs: Como a "ISO" foi baixado para o diretório /hom/kvmismael, foi necessário move para o diretório criado "osmedia".**
                             
 
-<img src="https://user-images.githubusercontent.com/51387190/112647822-ab13c380-8e27-11eb-8ecb-83b3540f576e.png" alt="checando os núcleos" title="checando os núcleos" /> 
-
-**Figura 11**
 Para essa configuração foi utilizado a placa de rede em modo bridge: virbr0 no qual o kvm cria por padrão na instalação, também foi necessário definir o nome da maquina virtual "vm1", assim como o tipo do "SO", para "centos7.0", a quantidade de memória ram "1024" e a quantidade de núcleos da cpu "1". Foi definido também o disco onde montara a "VM"  e o local que se encontra a ISO. Na Figura 12 é possível verificar os paramentos utilizado. E na tabela 2, a descrição de cada parâmetro utilizado.
 ```
 virt-install  --network bridge:virbr0 --name vm1 \      
