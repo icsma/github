@@ -104,11 +104,11 @@ sudo usermod -aG kvm $USER
 
 <img src=" https://user-images.githubusercontent.com/51387190/112647793-a2bb8880-8e27-11eb-8aea-75920e6dc331.png" alt="checando os núcleos" title="checando os núcleos" /> 
 
+**Figura 10
+
 ```
 Comando = osinfo-query os
 ```
-
-**Figura 10**
 
 **Instalação VM manual por meio da ISO:**
 
