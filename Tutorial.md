@@ -12,7 +12,6 @@ Conforme mostrado na figura 1, é demonstrado o ambiente no qual foi realizado o
 Nesse tutorial será demonstrado a instalação do KVM sem cabeça no ubuntu 20.04, nesse ambiente não esta sendo utilizado interface gráfica conforme mostrado na figura , as configurações utilizada nesse servidor, necessitam que o processador tenha suporte a virtualização, para isso execute o comando abaixo.
                              
 <img src="https://user-images.githubusercontent.com/51387190/112635152-39814880-8e1a-11eb-8628-11386a1b9cd2.png" alt="Terminal Linux" title="Terminal Linux" />
-
 **Figura 2**
 
 **Instalação do KVM e suas respectivas dependências.**
