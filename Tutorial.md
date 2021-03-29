@@ -7,7 +7,7 @@
 
 **Figura 1: Criação própria**
 
-KVM (para máquina virtual baseada em kernel) se refere a uma tecnologia que comemora 10 anos de projeto, essa solução trás virtualização completa para linux em hardware x86 (Intel VT ou AMD-V).  O KVM é um software de código aberto capaz de virtualizar imagens não modificadas do linux ou windows, essa virtualização possui para cada máquina virtual um hardware virtualizado privado, além de uma placa de rede lógica, disco virtual etc. Para mais informações consulte: KVM.
+- KVM (para máquina virtual baseada em kernel) se refere a uma tecnologia que comemora 10 anos de projeto, essa solução trás virtualização completa para linux em hardware x86 (Intel VT ou AMD-V).  O KVM é um software de código aberto capaz de virtualizar imagens não modificadas do linux ou windows, essa virtualização possui para cada máquina virtual um hardware virtualizado privado, além de uma placa de rede lógica, disco virtual etc. Para mais informações consulte: KVM.
 Conforme mostrado na figura 1, é demonstrado o ambiente no qual foi realizado os testes, o servidor roda o sistema operacional ubuntu server na versão 20.04, possui um processador AMD, com uma placa de rede onboard, no qual  a rede é o endereço ip do roteador comodato do provedor de serviço de internet, após a instalação das dependências para rodar o kvm, recebe a placa de rede lógica juntamente da sub rede de faixa 192.168.120.0 e a rede responde pelo nome "virbr0".
 Nesse tutorial será demonstrado a instalação do KVM sem cabeça no ubuntu 20.04, nesse ambiente não esta sendo utilizado interface gráfica conforme mostrado na figura , as configurações utilizada nesse servidor, necessitam que o processador tenha suporte a virtualização, para isso execute o comando abaixo.
                              
@@ -44,7 +44,7 @@ sudo apt install cpu-checker
 kvm-ok
 ```
 
-Agora é hora de instalar o KVM e suas respectivas dependências. Vale salientar que a parti desse momento é importante ter privilégios especiais, ou seja utilizar o usuário root para instalação e configuração do ambiente conforme mostrado na figura 6 abaixo. A tabela 1 abaixo representa as dependências e descrição dos pacotes a serem instalados.
+- Agora é hora de instalar o KVM e suas respectivas dependências. Vale salientar que a parti desse momento é importante ter privilégios especiais, ou seja utilizar o usuário root para instalação e configuração do ambiente conforme mostrado na figura 6 abaixo. A tabela 1 abaixo representa as dependências e descrição dos pacotes a serem instalados.
 
 Nome do Pacote | Descrição | Instalação
 :---------: | :------: | :-------:
