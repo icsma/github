@@ -341,7 +341,7 @@ vi /et/network/interfaces
 
 **Figura 29**
 
-Restarte o serviço de rede de acordo com a figura 30  e verifique se a rede recebeu "IP" vindo da sub-rede do "KVM", caso contrario reinicie a máquina virtual com o comando "init 6" ou "reboot".
+- Restarte o serviço de rede de acordo com a figura 30  e verifique se a rede recebeu "IP" vindo da sub-rede do "KVM", caso contrario reinicie a máquina virtual com o comando "init 6" ou "reboot".
 
 <img src="https://user-images.githubusercontent.com/51387190/112648231-1198e180-8e28-11eb-9b63-8ee713bd1eaf.png" alt="checando os núcleos" title="checando os núcleos" />
 
@@ -350,7 +350,7 @@ Restarte o serviço de rede de acordo com a figura 30  e verifique se a rede re
 ```
 /etc/init.d/networking restart
 ```
-Conforme mostrado na figura 31, a máquina virtual recebe o ip por meio do DHCP do KVM. 
+- Conforme mostrado na figura 31, a máquina virtual recebe o ip por meio do DHCP do KVM. 
 
 <img src="https://user-images.githubusercontent.com/51387190/112648276-1eb5d080-8e28-11eb-88e1-5824fa0e69f0.png" alt="checando os núcleos" title="checando os núcleos" />
                                                                                                               
