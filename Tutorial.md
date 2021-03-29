@@ -347,6 +347,9 @@ Restarte o serviço de rede de acordo com a figura 30  e verifique se a rede re
 
 **Figura 30**  
 
+```
+/etc/init.d/networking restart
+```
                                                                      
 Verifique que após reiniciar a interface de rede, a máquina virtual recebeu ip 192.168.122.144 e saiu para o servidor do google, conforme pode ser visto na figura 31.
 
