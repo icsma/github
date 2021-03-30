@@ -195,7 +195,7 @@ kvmismael:~$ env | grep key         #Verificando se a variavel key existe
 kvmismael:~$ unset DUALCASE         #Caso a variável existe e cometeu um erro de sintaxe, apague e recrie com o comando "export".  
 ```
 
-gerando o par de chave.
+- Gerando o par de chave.
 
 
 <img src="https://user-images.githubusercontent.com/51387190/112648017-d7c7db00-8e27-11eb-9b2b-f72a73211961.png" alt="checando os núcleos" title="checando os núcleos" />
@@ -292,6 +292,7 @@ vi /et/network/interfaces
 
 <img src="https://user-images.githubusercontent.com/51387190/112648276-1eb5d080-8e28-11eb-88e1-5824fa0e69f0.png" alt="checando os núcleos" title="checando os núcleos" />
 
+**Refêrencias:**
 
 https://qastack.com.br/programming/6877727/how-do-i-delete-an-exported-environment-variable
 
