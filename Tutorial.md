@@ -287,7 +287,7 @@ vi /et/network/interfaces
 
 <img src="https://user-images.githubusercontent.com/51387190/112648276-1eb5d080-8e28-11eb-88e1-5824fa0e69f0.png" alt="checando os núcleos" title="checando os núcleos" />
 
-**Refêrencias:**
+**Referências:**
 
 https://qastack.com.br/programming/6877727/how-do-i-delete-an-exported-environment-variable
 
