@@ -121,7 +121,7 @@ virt-install  --network bridge:virbr0 --name vm1 \
  --extra-args="console=tty0 console=ttyS0,115200"  --check all=off \
 ```
                 
-**OBS: é importante fixar que na criação de uma outra "VM", é necessário trocar o "--name vm1" por outro nome, exemplo "--name vm2", e também alterar o nome onde sera construído o novo disco virtual como por exemplo "/vm1-os.qcw2" para "/vm2-os.qcw2"**
+- **Obs: é importante fixar que na criação de uma outra "VM", é necessário trocar o "--name vm1" por outro nome, exemplo "--name vm2", e também alterar o nome onde sera construído o novo disco virtual como por exemplo "/vm1-os.qcw2" para "/vm2-os.qcw2"**
 
 - Na instalação é necessário concluir cada campo conforme a imagem abaixo, apenas o campo 3, 9 e 4 ficam sem configurações. Os campos mostrado, são para definir senha de usuário root, se o disco definido anteriormente sera utilizado todo, se haverá configurações de rede fixa ou dhcp, a zona ou localização como "TimeZone" etc.  
 
@@ -151,7 +151,7 @@ virt-install  --network bridge:virbr0 --name vm1 \ | Definindo interface lógic
 
 **Tabela 2 - criação própria**
 
-- **OBS: Verificando sistemas a serem instalado na nuvem, que der a suporte ao virt-builder, no qual exibi a lista de sistemas operacionais que podem ser baixadas e criadas as "VM".**
+- **Obs: Verificando sistemas a serem instalado na nuvem, que der a suporte ao virt-builder, no qual exibi a lista de sistemas operacionais que podem ser baixadas e criadas as "VM".**
 
 <img src="https://user-images.githubusercontent.com/51387190/112647955-c979bf00-8e27-11eb-82e1-07dd47420a9b.png" alt="checando os núcleos" title="checando os núcleos" />  
 
@@ -183,7 +183,7 @@ export bridge="virbr0"                  # nome da interface lógica de rede 'br0
 export ostype="debian9"                 # o tipo do SO definido.
 ```
                                                                          
-- **OBS: Se por acaso, a variável declarada tiver um erro de digitação verifique se a "váriavel" existe e exclua para criar novamente.**
+- **Obs: Se por acaso, a variável declarada tiver um erro de digitação verifique se a "váriavel" existe e exclua para criar novamente.**
 
 ```
 kvmismael:~$ env | grep key         #Verificando se a variavel key existe
@@ -201,7 +201,7 @@ ssh-keygen
 
 - Criando a maquina virtual após declarar a variável de ambiente nos passos anteriores. 
 
-- **OBS: É importante destacar, que após finalizar a pré instalação da VM, a senha criptografada é gerada aleatoriamente e pode ser vista logo abaixo na cor "pink".
+- **Obs: É importante destacar, que após finalizar a pré instalação da VM, a senha criptografada é gerada aleatoriamente e pode ser vista logo abaixo na cor "pink".
 
 <img src="https://user-images.githubusercontent.com/51387190/112648039-dd252580-8e27-11eb-86b4-8e52943e3dfd.png" alt="checando os núcleos" title="checando os núcleos" />  
        
