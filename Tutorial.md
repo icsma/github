@@ -201,7 +201,7 @@ ssh-keygen
 
 - Criando a maquina virtual após declarar a variável de ambiente nos passos anteriores. 
 
-- **Obs: É importante destacar, que após finalizar a pré instalação da VM, a senha criptografada é gerada aleatoriamente e pode ser vista logo abaixo na cor "pink".
+- **Obs: É importante destacar, que após finalizar a pré instalação da VM, a senha criptografada é gerada aleatoriamente e pode ser vista logo abaixo na cor "pink".**
 
 <img src="https://user-images.githubusercontent.com/51387190/112648039-dd252580-8e27-11eb-86b4-8e52943e3dfd.png" alt="checando os núcleos" title="checando os núcleos" />  
        
