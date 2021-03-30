@@ -95,12 +95,9 @@ Comando = osinfo-query os
 
 **3. Instalação VM manual por meio da ISO:**
 
-- Existem diversas fontes e automatização de scripts de como é criado as imagem para virtualização e gerenciamento, para esse tutorial será utilizado dois modos. O primeiro será manual onde você poderá baixar a ISO para o diretório corrente e executar a instalação, o segundo meio é por meio do "virt-builder" e imagens em nuvem. 
-
-- Criando as máquinas virtual por meio da ISO, baixando o arquivo bruto para o servidor de acordo com o diretório corrente.
+- Criando as máquinas virtual por meio da ISO, baixando o arquivo ISO para o servidor de acordo com o diretório corrente.
 
 - Criando diretório, baixando a ISO e dando permissão. Para criação do diretório, utilize o comando "mkdir", seguido do nome para esse diretório. O comando "wget", fará com quer o mesmo baixe o arquivo onde a "ISO" dessa distribuição linux foi disponibilizada. A permissão utilizada "755", atribui a permissão de leitura, escrita e execução para o dono do arquivo (7), leitura e execução para usuários do mesmo grupo e para os demais usuários. 
-
 
 <img src="https://user-images.githubusercontent.com/51387190/112647822-ab13c380-8e27-11eb-8ecb-83b3540f576e.png" alt="checando os núcleos" title="checando os núcleos" /> 
 
@@ -112,9 +109,7 @@ chmod 755 CentOS-7-x86_64-Minimal-1910-01.iso
 ```
 **Obs: Como a "ISO" foi baixado para o diretório /hom/kvmismael, foi necessário move para o diretório criado "osmedia".**
                             
-
 - Para essa configuração foi utilizado a placa de rede em modo bridge: virbr0 no qual o kvm cria por padrão na instalação, também foi necessário definir o nome da maquina virtual "vm1", assim como o tipo do "SO", para "centos7.0", a quantidade de memória ram "1024" e a quantidade de núcleos da cpu "1". Foi definido também o disco onde montara a "VM"  e o local que se encontra a ISO. 
-
 
 <img src="https://user-images.githubusercontent.com/51387190/112647850-b0710e00-8e27-11eb-8651-aef42f25dca8.png" alt="checando os núcleos" title="checando os núcleos" /> 
 
