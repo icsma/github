@@ -158,16 +158,6 @@ virt-install  --network bridge:virbr0 --name vm1 \ | Definindo interface lógic
 
 - **OBS: Verificando sistemas a serem instalado na nuvem, que der a suporte ao virt-builder, no qual exibi a lista de sistemas operacionais que podem ser baixadas e criadas as "VM".**
 
-Comando | Descrição
-:--------- | :------:
-virt-install  --network bridge:virbr0 --name vm1 \ | Definindo interface lógica e o nome da vm
- --os-variant=centos7.0 --ram=1024 --vcpus=1  \ | O tipo do sistema operacional utilizado, memória ram e quantidade de nucleo.
- --disk path=/var/lib/libvirt/images/vm1 os.qcow2,format=qcow2,bus=virtio,size=5 \ | O caminho onde sera criado a vm virtual  
---graphics none  --location=/home/kvmismael/osmedia/CentOS-7-x86_64-Minimal-1910-01.iso \ | O caminho que se encontra a ISO.
---extra-args="console=tty0 console=ttyS0,115200"  --check all=off | O console para inicia o processo da instalação
-
-**Tabela 2 - criação própria**
-
 <img src="https://user-images.githubusercontent.com/51387190/112647955-c979bf00-8e27-11eb-82e1-07dd47420a9b.png" alt="checando os núcleos" title="checando os núcleos" />  
 
 ```
