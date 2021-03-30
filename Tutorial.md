@@ -8,8 +8,8 @@
 **Topológia: Criação própria**
 
 - KVM (para máquina virtual baseada em kernel) se refere a uma tecnologia que comemora 10 anos de projeto, essa solução trás virtualização completa para linux em hardware x86 (Intel VT ou AMD-V).  O KVM é um software de código aberto capaz de virtualizar imagens não modificadas do linux ou windows, essa virtualização possui para cada máquina virtual um hardware virtualizado privado, além de uma placa de rede lógica, disco virtual etc. Para mais informações consulte: KVM.
-Conforme mostrado na figura 1, é demonstrado o ambiente no qual foi realizado os testes, o servidor roda o sistema operacional ubuntu server na versão 20.04, possui um processador AMD, com uma placa de rede onboard, no qual  a rede é o endereço ip do roteador comodato do provedor de serviço de internet, após a instalação das dependências para rodar o kvm, recebe a placa de rede lógica juntamente da sub rede de faixa 192.168.120.0 e a rede responde pelo nome "virbr0".
-Nesse tutorial será demonstrado a instalação do KVM sem cabeça no ubuntu 20.04, nesse ambiente não esta sendo utilizado interface gráfica conforme mostrado na figura , as configurações utilizada nesse servidor, necessitam que o processador tenha suporte a virtualização, para isso execute o comando abaixo.
+Na imagem abaixo é demonstrado o ambiente no qual foi realizado os testes, o servidor roda o sistema operacional ubuntu server na versão 20.04, possui um processador AMD, com uma placa de rede onboard, no qual  a rede é o endereço ip do roteador comodato do provedor de serviço de internet, após a instalação das dependências para rodar o kvm, recebe a placa de rede lógica juntamente da sub rede de faixa 192.168.120.0 e a rede responde pelo nome "virbr0".
+Nesse tutorial será demonstrado a instalação do KVM sem cabeça no ubuntu 20.04, nesse ambiente não esta sendo utilizado interface gráfica conforme mostrado na figura abaixo, as configurações utilizada nesse servidor, necessitam que o processador tenha suporte a virtualização, para isso execute o comando abaixo.
                              
 <img src="https://user-images.githubusercontent.com/51387190/112635152-39814880-8e1a-11eb-8628-11386a1b9cd2.png" alt="Terminal Linux" title="Terminal Linux" />
 
@@ -134,12 +134,12 @@ virt-install  --network bridge:virbr0 --name vm1 \
                                                                        
 <img src="https://user-images.githubusercontent.com/51387190/112647897-bbc43980-8e27-11eb-966f-6270c33b6c77.png" alt="checando os núcleos" title="checando os núcleos" />                                          
                                                                            
-- Nessa etapa, a configuração foi concluída conforme mostrado  na figura 15, agora ao pressionar a tecla "Enter", a VM recém criada é reiniciada e inicializada conforme visto na figura 16.
+- Nessa etapa, a configuração foi concluída conforme mostrado abaixo, agora ao pressionar a tecla "Enter", a VM recém criada é iniciada.
 
 
 <img src="https://user-images.githubusercontent.com/51387190/112647921-c088ed80-8e27-11eb-9487-73f418fa86d8.png" alt="checando os núcleos" title="checando os núcleos" />                                                                                                                                                 
                                                                                                                                                   
-- Ainda na figura 16, observem que o "usuário" digitado deve ser o "root" e a senha definida na instalação da "VM". após se logar, é possível verificar o ip recebido pelo "dhcp" da "KVM default". E o "ping", para testa a comunicação com o "Google".
+- Observe que o "usuário" digitado deve ser o "root" e a senha definida na instalação da "VM". após se logar, é possível verificar o ip recebido pelo "dhcp" da "KVM default". E o "ping", para testa a comunicação com o "Google".
 
 <img src="https://user-images.githubusercontent.com/51387190/112647942-c54da180-8e27-11eb-8ceb-081ff145e04a.png" alt="checando os núcleos" title="checando os núcleos" />                                                                                 
 
@@ -177,7 +177,7 @@ $ sudo virt-builder --list | egrep -i 'debian|ubuntu'
 
 ```
 export vm="debian-9-vm1"                # Nome da VM
-export os="debian-9"                    # o sistema operacional, tem que ser o nome conforme mostrado la listagem da figura 18.    
+export os="debian-9"                    # o sistema operacional, tem que ser o nome.    
 export tz="America/Fortaleza"           # Time zone.
 export ram="1024"                       # Memória ram da VM.
 export disk="10G"                       # O tamnaho do disco a ser utilizado.
