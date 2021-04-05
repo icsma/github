@@ -104,6 +104,7 @@ Comando = osinfo-query os
 
 ```
 mkdir osmedia
+cd osmedia
 wget https://buildlogs.centos.org/rolling/7/isos/x86_64/CentOS-7-x86_64-Minimal-1910-01.iso
 mv CentOS-7-x86_64-Minimal-1910-01.iso /home/kvmismael/osmedia
 chmod 755 CentOS-7-x86_64-Minimal-1910-01.iso
