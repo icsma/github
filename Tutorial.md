@@ -103,7 +103,7 @@ Comando = osinfo-query os
 <img src="https://user-images.githubusercontent.com/51387190/112647822-ab13c380-8e27-11eb-8ecb-83b3540f576e.png" alt="checando os núcleos" title="checando os núcleos" /> 
 
 ```
-MKDIR osmedia
+mkdir osmedia
 wget https://buildlogs.centos.org/rolling/7/isos/x86_64/CentOS-7-x86_64-Minimal-1910-01.iso
 mv CentOS-7-x86_64-Minimal-1910-01.iso /home/kvmismael/osmedia
 chmod 755 CentOS-7-x86_64-Minimal-1910-01.iso
