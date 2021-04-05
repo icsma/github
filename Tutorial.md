@@ -108,7 +108,7 @@ wget https://buildlogs.centos.org/rolling/7/isos/x86_64/CentOS-7-x86_64-Minimal-
 mv CentOS-7-x86_64-Minimal-1910-01.iso /home/kvmismael/osmedia
 cd osmedia
 chmod 755 CentOS-7-x86_64-Minimal-1910-01.iso
-
+cd..
 ```
 **Obs: Como a "ISO" foi baixado para o diretório /hom/kvmismael, foi necessário move para o diretório criado "osmedia".**
                             
@@ -117,11 +117,11 @@ chmod 755 CentOS-7-x86_64-Minimal-1910-01.iso
 <img src="https://user-images.githubusercontent.com/51387190/112647850-b0710e00-8e27-11eb-8651-aef42f25dca8.png" alt="checando os núcleos" title="checando os núcleos" /> 
 
 ```
-virt-install  --network bridge:virbr0 --name vm1 \      
- --os-variant=centos7.0 --ram=1024 --vcpus=1  \         
- --disk path=/var/lib/libvirt/images/vm1-os.qcow2,format=qcow2,bus=virtio,size=5 \  
- --graphics none  --location=/home/kvmismael/osmedia/CentOS-7-x86_64-Minimal-1910-01.iso \
- --extra-args="console=tty0 console=ttyS0,115200"  --check all=off \
+ virt-install --network bridge:br0 --name vm1 \
+--os-variant=centos7.0 --ram=1024 --vcpus=1 \
+--disk path=/var/lib/libvirt/images/vm1-os.qcow2,format=qcow2,bus=virtio,size=5 \
+--graphics none --location=/home/kvmismael/osmedia/CentOS-7-x86_64-Minimal-1910-01.iso \
+--extra-args="console=tty0 console=ttyS0,115200" --check all=off \
 ```
                 
 - **Obs: é importante fixar que na criação de uma outra "VM", é necessário trocar o "--name vm1" por outro nome, exemplo "--name vm2", e também alterar o nome onde sera construído o novo disco virtual como por exemplo "/vm1-os.qcw2" para "/vm2-os.qcw2"**
