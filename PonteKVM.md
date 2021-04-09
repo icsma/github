@@ -63,9 +63,8 @@ network:
   nano host-bridge.xml
   ou
   vi host-bridge.xml
-  
-  ### cole o script abaixo ###
-  
+
+### cole o script abaixo ###  
   <network>
   <name>host-bridge</name>
   <forward mode="bridge"/>
