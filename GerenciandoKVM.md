@@ -54,7 +54,7 @@ virsh snapshot-list vm1
 ```
 **criando snapshot**
 ```
-virsh snapshot-create-as --domain vm1 --name "snapshot_A" --descrição "MeuPrimeiroSnapshot" 
+virsh snapshot-create-as --domain vm1 --name "snapshot_A" --description "MeuPrimeiroSnapshot" 
 ```
 **Liste agora os snapshot
 ```
