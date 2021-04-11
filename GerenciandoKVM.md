@@ -54,30 +54,21 @@ virsh snapshot-list vm1
 ```
 **criando snapshot**
 ```
-virsh snapshot-create-as --domínio guest_vm --nome "snapshot_name" --descrição "descrição" 
+virsh snapshot-create-as --domain vm1 --name "snapshot_A" --descrição "MeuPrimeiroSnapshot" 
 ```
 **Liste agora os snapshot
 ```
 virsh snapshot-list vm1
 ```
 **verificando os detalhes dos snapshot**
-
-``` 
-virsh snapshot-list guest_vm 
 ```
-**ou**
+virsh snapshot-info --domain vm1 --current
 ```
-virsh snapshot-info --domínio guest_vm --corrente 
-```
-
 **Para reverter para um snapshot (restauração de instantâneo)**
 ``` 
-virsh snapshot-revert --domínio guest_vm --snapshotname "snapshot_name" 
+virsh snapshot-revert --domínio vm1 --snapshotname "snapshot_A" 
+``` 
+**Para excluir um snapshot**
 ```
-```
-virsh shutdown --domínio guest_vm 
-```
-**Executando Para excluir um snapshot**
-```
-virsh snapshot-delete --domínio guest_vm --snapshotname "snapshot_name"
+virsh snapshot-delete --domínio vm1 --snapshotname "snapshot_A"
 ```
