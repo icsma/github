@@ -7,30 +7,30 @@ virsh list --all
 ```
 **Verificando informações**
 ```
-virsh dominfo centos8-vm1
+virsh dominfo vm1
 ```
 **Desligando vm**
 ```
-virsh shutdown centos8-vm1
+virsh shutdown vm1
 ```
 
 **Iniciando as VM**
 ```
-virsh start centos8-vm1
+virsh start vm1
 ```
 
 **Para que a VM incie quando o servidor for reiniciado**
 ```
-virsh autostart centos8-vm1
+virsh autostart vm1
 ```
 **Excluir VM**
 ```
-virsh shutdown centos8-vm1
-virsh undefine centos8-vm1
-virsh pool-destroy centos8-vm1
-D=/var/lib/libvirt/images
-VM=centos8-vm1.img
-rm -ri $D/$VM
+virsh shutdown vm1
+virsh undefine vm1
+```
+**para excluir o disco por completo da vm1**
+```
+rm -ri /var/lib/libvirt/images/vm1-os.qcow2
 ```
 **Para ver uma lista completa do tipo de comando virsh**
 ```
