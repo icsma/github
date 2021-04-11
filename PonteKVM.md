@@ -2,6 +2,8 @@
 
 **Instalando Dependências**
 
+<img src="https://user-images.githubusercontent.com/51387190/114325001-07ebcb00-9b04-11eb-8c47-14e3f260dd3d.png" alt="topologia" title="instalando dependencias" />
+
 ```
 sudo apt-get install qemu-kvm libvirt-daemon-system libvirt-clients virtinst bridge-utils
 ```
