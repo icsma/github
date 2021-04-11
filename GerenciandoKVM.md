@@ -66,9 +66,9 @@ virsh snapshot-info --domain vm1 --current
 ```
 **Para reverter para um snapshot (restauração de instantâneo)**
 ``` 
-virsh snapshot-revert --domínio vm1 --snapshotname "snapshot_A" 
+virsh snapshot-revert --domain vm1 --snapshotname "snapshot_A" 
 ``` 
 **Para excluir um snapshot**
 ```
-virsh snapshot-delete --domínio vm1 --snapshotname "snapshot_A"
+virsh snapshot-delete --domain vm1 --snapshotname "snapshot_A"
 ```
