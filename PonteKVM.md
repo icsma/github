@@ -123,6 +123,7 @@ virsh net-autostart host-bridge
 **Verifique se a rede foi ativada**
 
 <img src="https://user-images.githubusercontent.com/51387190/114325535-fa841000-9b06-11eb-98bd-7d267fcf7c1d.png" alt="topologia" title="verificar o status" />
+
 ```
 virsh net-list --all
 ```
