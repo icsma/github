@@ -110,7 +110,7 @@ vi host-bridge.xml
 </network>
 ```
 **execute os comandos abaixo**
-<img src="https://user-images.githubusercontent.com/51387190/114325330-ea1f6580-9b05-11eb-8bdf-f7940355321e.png" alt="topologia" title="criando arquivo de rede" />
+<img src="https://user-images.githubusercontent.com/51387190/114325330-ea1f6580-9b05-11eb-8bdf-f7940355321e.png" alt="topologia" title="executando script" />
 
 ```
 virsh net-define host-bridge.xml
@@ -118,8 +118,7 @@ virsh net-start host-bridge
 virsh net-autostart host-bridge
 ```
 **Verifique se a rede foi ativada**
-<img src="https://user-images.githubusercontent.com/51387190/114325535-fa841000-9b06-11eb-98bd-7d267fcf7c1d.png" alt="topologia" title="criando arquivo de rede" />
-
+<img src="https://user-images.githubusercontent.com/51387190/114325535-fa841000-9b06-11eb-98bd-7d267fcf7c1d.png" alt="topologia" title="verificar o status" />
 ```
 virsh net-list --all
 ```
