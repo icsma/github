@@ -45,14 +45,19 @@ Cole o script abaixo.
 ACTION=="add", SUBSYSTEM=="module", KERNEL=="br_netfilter", \           RUN+="/sbin/sysctl -p /etc/sysctl.d/bridge.conf"
 ```
 **Iremos desabilitar as interfaces padrão criadas pelo KVM**
+
 <img src="https://user-images.githubusercontent.com/51387190/114325084-96f8e300-9b04-11eb-897a-f26e9203c460.png" alt="topologia" title="desabilitando interface" />
-<img src="https://user-images.githubusercontent.com/51387190/114325089-a37d3b80-9b04-11eb-9228-e75823485b5d.png" alt="topologia" title="desabilitando interface" />
 
 ```
 virsh net-destroy default
+```
+<img src="https://user-images.githubusercontent.com/51387190/114325089-a37d3b80-9b04-11eb-9228-e75823485b5d.png" alt="topologia" title="desabilitando interface" />
+
+```
 virsh net-undefine default
 ```
 **Edite o arquivo abaixo com editor de sua preferencia**
+
 <img src="https://user-images.githubusercontent.com/51387190/114325173-15ee1b80-9b05-11eb-9b13-2d685ecc95b6.png" alt="topologia" title="alterando arquivo" />
 
 ```
