@@ -22,6 +22,7 @@ virsh dominfo vm1
 virsh shutdown vm1
 ```
 **Iniciando as VM**
+
 <img src="https://user-images.githubusercontent.com/51387190/114323494-dec73c80-9afb-11eb-94e4-2813b7b8f7db.png" alt="topologia" title="iniciando vms"/>
 
 ```
@@ -29,10 +30,14 @@ virsh start vm1
 ```
 
 **Para que a VM incie quando o servidor for reiniciado**
+
+<img src="https://user-images.githubusercontent.com/51387190/114323524-fc94a180-9afb-11eb-9992-a657d963ead0.png" alt="topologia" title="iniciando vms"/>
+
 ```
 virsh autostart vm1
 ```
 **Excluir VM**
+
 ```
 virsh shutdown vm1
 virsh undefine vm1
