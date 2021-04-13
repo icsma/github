@@ -9,18 +9,21 @@ virsh list --all
 ```
 
 **Verificando informações**
-<img src="https://user-images.githubusercontent.com/51387190/114323463-b3445200-9afb-11eb-9d1f-12f4dd828848.png" alt="topologia" title="verificando informacoes"/>
+<img src="https://user-images.githubusercontent.com/51387190/114323374-42049f00-9afb-11eb-8c1d-ad74084114fa.png" alt="topologia" title="verificando informacoes"/>
 
 ```
 virsh dominfo vm1
 ```
 **Desligando vm**
 
+<img src="https://user-images.githubusercontent.com/51387190/114323463-b3445200-9afb-11eb-9d1f-12f4dd828848.png" alt="topologia" title="desligando vms"/>
+
 ```
 virsh shutdown vm1
 ```
-
 **Iniciando as VM**
+<img src="https://user-images.githubusercontent.com/51387190/114323494-dec73c80-9afb-11eb-94e4-2813b7b8f7db.png" alt="topologia" title="iniciando vms"/>
+
 ```
 virsh start vm1
 ```
