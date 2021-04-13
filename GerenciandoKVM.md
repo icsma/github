@@ -1,12 +1,13 @@
 **Tutorial Gerenciado o KVM**
 
-
 **Lista todas as vms**
+
 <img src="https://user-images.githubusercontent.com/51387190/114323313-f3ef9b80-9afa-11eb-9c6c-6be743809624.png" alt="topologia" title="listando vms"/>
 
 ```
 virsh list --all
 ```
+
 **Verificando informações**
 <img src="https://user-images.githubusercontent.com/51387190/114323463-b3445200-9afb-11eb-9d1f-12f4dd828848.png" alt="topologia" title="verificando informacoes"/>
 
