@@ -31,12 +31,13 @@ virsh start vm1
 
 **Para que a VM incie quando o servidor for reiniciado**
 
-<img src="https://user-images.githubusercontent.com/51387190/114323524-fc94a180-9afb-11eb-9992-a657d963ead0.png" alt="topologia" title="iniciando vms"/>
+<img src="https://user-images.githubusercontent.com/51387190/114323524-fc94a180-9afb-11eb-9992-a657d963ead0.png" alt="topologia" title="incio automatico vms"/>
 
 ```
 virsh autostart vm1
 ```
 **Excluir VM**
+<img src="https://user-images.githubusercontent.com/51387190/114324715-fb667300-9b01-11eb-8116-fb4eac725f70.png" alt="topologia" title="excluindo"/>
 
 ```
 virsh shutdown vm1
