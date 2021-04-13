@@ -37,17 +37,23 @@ virsh start vm1
 virsh autostart vm1
 ```
 **Excluir VM**
-<img src="https://user-images.githubusercontent.com/51387190/114324715-fb667300-9b01-11eb-8116-fb4eac725f70.png" alt="topologia" title="excluindo"/>
+
+<img src="https://user-images.githubusercontent.com/51387190/114324715-fb667300-9b01-11eb-8116-fb4eac725f70.png" alt="topologia" title="excluindo vms"/>
 
 ```
 virsh shutdown vm1
 virsh undefine vm1
 ```
 **para excluir o disco por completo da vm1**
+
+<img src="https://user-images.githubusercontent.com/51387190/114324750-2f419880-9b02-11eb-8f95-4da5daa17d54.png" alt="topologia" title="excluindo vms"/>
 ```
 rm -ri /var/lib/libvirt/images/vm1-os.qcow2
 ```
 **Para ver uma lista completa do tipo de comando virsh**
+
+<img src="https://user-images.githubusercontent.com/51387190/114323559-24840500-9afc-11eb-9a26-2c79ea3c0dcb.png" alt="topologia" title="lista do comando virsh"/>
+
 ```
 virsh help | less
 ```
