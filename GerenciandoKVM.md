@@ -7,8 +7,8 @@
 ```
 virsh list --all
 ```
-
 **Verificando informações**
+
 <img src="https://user-images.githubusercontent.com/51387190/114323374-42049f00-9afb-11eb-8c1d-ad74084114fa.png" alt="topologia" title="verificando informacoes"/>
 
 ```
