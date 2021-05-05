@@ -1,5 +1,4 @@
-** KVM criando host Windows **
-
+**KVM criando host Windows**
 
 **1° baixe a ISO no site oficial da microsoft**
 
@@ -49,7 +48,7 @@ virt-install --name windows_10 --ram 4096 --cpu host --hvm --vcpus=4 --file /hom
 
 <img src="https://user-images.githubusercontent.com/51387190/117081696-c7ecc200-ad16-11eb-85b9-3b261b054115.png" alt="windows10" title="vms"/>
 
-**Disco virtual criado na etapa 2. Finalize a instalação**
+**Disco virtual criado na etapa 2. Finalize a instalação.**
 
 **Referências:** 
 https://www.geekpills.com/virtulization/nstalling-windows-xp-kvm-platform-ubuntu-16-04-lts
