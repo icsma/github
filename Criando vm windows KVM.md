@@ -30,7 +30,7 @@ qemu-img create -f qcow2 /home/kvmismael/system.img 30G
 virt-install --name windows_10 --ram 4096 --cpu host --hvm --vcpus=4 --file /home/kvmismael/system.img --cdrom /home/kvmismael/Win10_20H2_v2BrazilianPortuguese_x64.iso
 ```
 
-** Para concluir a instalação, precisa ir para interface gráfica. Utilize um cliente de sua preferencia para se conectar pelo ip ou pelo ip local, foi utilizado o ip local dentro do servidor KVM. 
+**Para concluir a instalação, precisa ir para interface gráfica. Utilize um cliente de sua preferencia para se conectar pelo ip ou pelo ip local, foi utilizado o ip local dentro do servidor KVM.** 
 
 
 <img src="https://user-images.githubusercontent.com/51387190/117081040-74c63f80-ad15-11eb-972b-d93e58d6edb3.png" alt="DISCO" title="vms"/>
