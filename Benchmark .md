@@ -1,5 +1,6 @@
-**TUTORIAL TESTES BENCHMARK**   
+**TUTORIAL TESTES BENCHMARK SYSBENCH & BONNIE++**   
 
+**BONNIE++**
 **01 Verificando o desempenho da CPU**
 
 ```
@@ -93,4 +94,5 @@ https://linuxconfig.org/how-to-benchmark-your-linux-system
 https://wiki.gentoo.org/wiki/Sysbench
 https://www.howtoforge.com/how-to-benchmark-your-system-cpu-file-io-mysql-with-sysbench
 
-OBS: 
+** **
+
