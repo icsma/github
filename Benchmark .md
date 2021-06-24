@@ -1,4 +1,4 @@
-**TUTORIAL TESTES BENCHMARK SYSBENCH & BONNIE++**   
+**TUTORIAL TESTES BENCHMARK SYSBENCH**   
 
 **SYSBENCH**
 **01 Verificando o desempenho da CPU**
@@ -96,7 +96,7 @@ https://www.howtoforge.com/how-to-benchmark-your-system-cpu-file-io-mysql-with-s
 
 ** **
 
-**BONNIE++**
+
 
 
 
