@@ -5,10 +5,18 @@
 **01 Verificando o desempenho da CPU**
 
 ```
-bonnie ++
+bonnie++
 ```
 
-**ou**
+```
+bonnie++ -d /tmp/ -s 8G -n 0 -m TEST -f -b -u kvmismael
+```
+
+**OBS: para gera os resultados em html é necessario copiar os resultados que foram gerados por meio dos comandos anteriores conforme visto no resultado 2 e 4 ou pode ser gerado conforme o comando abaixo!**
+
+```
+bonnie++ -d /tmp -s 500 -r 250 -n 2 -m CIALINUX -x 3 -u cialinux | bon_csv2html > /tmp/RESULTADO.html
+```
 
 **Resultados A:**
 
