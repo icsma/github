@@ -47,6 +47,7 @@ bonnie++ -d /tmp -s 500 -r 250 -n 2 -m CIALINUX -x 3 -u kvmismael | bon_csv2html
 ** **
 **Referências:**
 https://blog.smallbee.com.br/bonnie-benchmark-de-disco-em-sistemas-linux/
+https://blog.smallbee.com.br/bonnie-benchmark-de-disco-em-sistemas-linux/
 ** **
 
 
