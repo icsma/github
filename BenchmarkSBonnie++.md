@@ -15,12 +15,10 @@ bonnie ++
 **Resultado 01**
 <img src="https://user-images.githubusercontent.com/51387190/123182067-05431580-d465-11eb-8bc5-b4fbafee3bb3.png" alt="Teste básico cpu" title="01" />
 
-
 **Resultado 02**
 <img src="https://user-images.githubusercontent.com/51387190/123180214-36b9e200-d461-11eb-85d1-70e43eb0d603.png" alt="Teste básico memória" title="02" />
 
 ** **
-
 **Resultados B:**
 
 **Resultado 01**
@@ -34,7 +32,7 @@ bonnie ++
 
 **Resultado 04**
 <img src="https://user-images.githubusercontent.com/51387190/123181960-cdd46900-d464-11eb-9cef-71563664284d.png" alt="Teste básico memória" title="02" />
-
+** **
 
 **Referências:**
 https://blog.smallbee.com.br/bonnie-benchmark-de-disco-em-sistemas-linux/
