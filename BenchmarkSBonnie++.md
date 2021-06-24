@@ -27,6 +27,7 @@ bonnie++ -d /tmp -s 500 -r 250 -n 2 -m CIALINUX -x 3 -u cialinux | bon_csv2html 
 <img src="https://user-images.githubusercontent.com/51387190/123180214-36b9e200-d461-11eb-85d1-70e43eb0d603.png" alt="Teste básico cpu" title="02" />
 
 ** **
+
 **Resultados B:**
 
 **Resultado 01**
