@@ -1,5 +1,5 @@
 
-**TUTORIAL TESTES BENCHMARK SYSBENCH**   
+**TUTORIAL TESTES BENCHMARK BONNIE++**   
 
 **BONNIE++**
 **01 Verificando o desempenho da CPU**
@@ -7,9 +7,8 @@
 ```
 bonnie ++
 ```
+
 **ou**
-
-
 
 **Resultados A:**
 
@@ -41,8 +40,5 @@ bonnie ++
 https://blog.smallbee.com.br/bonnie-benchmark-de-disco-em-sistemas-linux/
 
 ** **
-
-
-
 
 
